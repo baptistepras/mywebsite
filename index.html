@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Baptiste Pras</title>
+  <style>
+    a {
+      color: purple; 
+      text-decoration: underline;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #FBF5E7;
+      color: #333;
+    }
+
+    header {
+      background-color: #D9CBB5;
+      padding: 20px 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      border-bottom: 2px solid #C4B79F;
+    }
+
+    header nav {
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    header nav a {
+      margin: 0 25px;
+      text-decoration: none;
+      color: #333;
+      transition: color 0.3s ease;
+    }
+
+    header nav a:hover {
+      color: #6A4E77;
+    }
+
+    .no-style-space {
+      text-decoration: none;
+      color: inherit; /* Hérite la couleur normale du texte */
+    }
+
+    .content {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 100px 20px 20px;
+    }
+
+    .intro {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      margin-bottom: 40px;
+    }
+
+    .intro-text {
+      max-width: 50%;
+    }
+
+    .intro p {
+      font-size: 18px;
+      line-height: 1.6;
+      text-align: justify;
+    }
+
+    .section p {
+      text-align: justify; 
+    }
+
+    .section {
+      margin-bottom: 30px;
+      scroll-margin-top: 80px; 
+    }
+
+    .section h2 {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    .content-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .content-item img.icon {
+      width: 30px;
+      height: auto;
+      margin-right: 10px;
+    }
+
+    .content-item img.logo {
+      width: 120px;
+      height: auto;
+      margin-right: 20px;
+    }
+
+    .code-editor {
+      white-space: pre; /* Conserve les espaces et retours à la ligne */
+      font-family: "Courier New", Courier, monospace; /* Police de type monospace */
+      background-color: #272822;
+      color: #f8f8f2;
+      padding: 10px;
+      border: 1px solid #444;
+      width: 100%;
+      height: 200px;
+      overflow: auto;
+    }
+
+    .button-container {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .button-container button {
+      padding: 10px 20px;
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .button-container button:hover {
+      background-color: #0056b3;
+    }
+
+    .console-output {
+      background-color: #1e1e1e;
+      color: #32CD32;
+      font-family: "Courier New", Courier, monospace;
+      padding: 10px;
+      border: 1px solid #444;
+      width: 100%;
+      height: 150px;
+      overflow: auto;
+    }
+
+    .video-container {
+      display: flex;
+      justify-content: center; /* Centre horizontalement */
+      align-items: center;
+    }
+
+    .image-row {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+    }
+
+    .image-column {
+      flex: 1; /* Chaque colonne prend une part égale de l'espace */
+      display: flex;
+      justify-content: center; /* Centre les images horizontalement */
+      align-items: center; /* Centre les images verticalement */
+      padding: 0 10px; /* Espace entre les colonnes */
+    }
+
+    .image-column img {
+      max-width: 100%; /* Les images ne dépasseront pas leur conteneur */
+      height: auto; /* Maintient les proportions de l'image */
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="#education">Education</a>
+      <a href="#experience">Professional Experience</a>
+      <a href="#projects">Projects</a>
+    </nav>
+  </header>
+
+  <div class="content">
+    <div class="intro">
+      <div class="intro-text">
+        <h2>Baptiste Pras</h2>
+        <p>
+          I am a Bachelor student at University Paris-Saclay with a strong interest in Artificial Intelligence and Data Science. I aim to further my studies in these fields, with the ultimate goal of pursuing a PhD to contribute to advanced research and innovation.
+        </p>
+        <div class="content-item">
+          <img class="icon" src="static/mail.png" alt="Email Icon">
+          <p>
+            <a href="mailto:baptiste_pras@etu-upsaclay.fr" target="_blank">baptiste_pras[at]etu-upsaclay[dot]fr</a>
+          </p>
+        </div>
+        <div class="content-item">
+          <img class="icon" src="static/github.svg" alt="GitHub Icon">
+          <p><a href="https://github.com/baptistepras" target="_blank">https://github.com/baptistepras</a></p>
+        </div>
+        <div class="content-item">
+          <img class="icon" src="static/CV.png" alt="CV Icon">
+          <p>
+            <a href="static/CV_ENG.pdf" target="_blank">CV_English</a>
+            <span class="no-style-space">    </span>
+            <a href="static/CV_FR.pdf" target="_blank">CV_French</a>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <section class="section" id="education">
+      <h2>Education</h2>
+      <div class="content-item">
+        <img class="logo" src="static/univPS.png" alt="Université Paris-Saclay Logo">
+        <p>
+          After completing two years in the <strong>Dual Bachelor’s program in Mathematics and Computer Science</strong> at <strong>University Paris-Saclay</strong>, where I developed a <strong>strong foundation</strong> in <strong>algebra</strong>, <strong>probability</strong>, <strong>data structures</strong>, and <strong>algorithms</strong>, as well as advanced <strong>problem-solving</strong> and <strong>computational thinking skills</strong>, I was admitted to the <strong>highly selective Magistère d’Informatique</strong> program where I had the chance to focus more on <strong>Artificial Intelligence</strong> and <strong>Distributed Algorithms</strong>.
+        </p>
+      </div>
+      <div class="content-item">
+        <img class="logo" src="static/EF.jpeg" alt="EF Education Logo">
+        <p>
+          Following my <strong>passion for language</strong> and <strong>cultural immersion</strong>, I spent a year studying <strong>English in New York</strong>, where I honed my <strong>linguistic skills</strong> to achieve a <strong>near-native level of fluency</strong>. This <strong>transformative experience</strong> not only strengthened my <strong>proficiency in English</strong> but also enhanced my <strong>adaptability</strong>, <strong>cross-cultural communication</strong>, and <strong>independence</strong>.
+        </p>
+      </div>
+    </section>
+
+    <section class="section" id="experience">
+      <h2>Professional Experience</h2>
+      <div class="content-item">
+        <img class="logo" src="static/LISN.png" alt="LISN Logo">
+        <p>
+          During my <strong>research internship</strong>, I explored the <strong>impact of class imbalance</strong> on the performance of <strong>various machine learning models</strong>, analyzing how different levels of imbalance affect <strong>model accuracy</strong>. I designed and conducted <strong>experiments in Python</strong>, utilizing libraries such as <strong>scikit-learn</strong>, <strong>PyTorch</strong>, and <strong>numpy</strong>, while effectively visualizing results with <strong>matplotlib</strong> to draw meaningful insights.
+        </p>
+      </div>
+      <div class="content-item">
+        <img class="logo" src="static/Outlier.jpeg" alt="Outlier Logo">
+        <p>
+          As a <strong>Generative AI Trainer</strong> at Outlier, I played a key role in <strong>improving the performance</strong> and reliability of <strong>generative AI models</strong>. My responsibilities included <strong>designing and refining prompts</strong> to optimize model outputs and <strong>reviewing AI-generated content</strong> to ensure its accuracy and quality.
+        </p>
+      </div>
+    </section>
+
+    <section class="section" id="projects">
+      <h2>Some of my projects</h2>
+      <p><strong><u>Java-like Interpreter:</strong></u><br>
+        Developed a custom interpreter inspired by Java, featuring support for various instructions, basic arithmetic operations, and object-oriented programming concepts such as classes and methods. Designed the language with a strong type system similar to Java’s, ensuring robust and reliable code execution. The interpreter was implemented in OCaml using tools like OCamllex and Menhir for lexical and syntactic analysis, showcasing advanced programming language theory and compiler construction techniques. You can try a simplified version here. The complete source code is available on my GitHub repository.
+      </p>
+
+      <h3>Code Execution</h3>
+      <div contenteditable="true" class="code-editor">// Here is an example of correctly written and typed Kawa code
+var int x;
+var bool b;
+var paire p;
+var triple t;
+
+class paire {
+  attribute int x, y;
+
+  method void constructor(int x, int y) {
+    this.x = x;
+    this.y = y;
+  }
+
+  method int test(int n) {
+    while n > 0 {
+      print(n%2==0);
+      n = n - 1;
+    }
+    return n;
+  }
+}
+
+class triple extends paire {
+  attribute int z;
+
+  method void constructor(int x, int y, int z) {
+    this.x = x;
+    this.y = y;
+    this.z = z;
+  }
+}
+
+main {
+  x = 42;
+  b = true;
+  p = new paire(1, 2); // new initialize the attributes of p
+  t = new triple(1, 2, 3); // newc calls the method constructor on t
+  if b {
+    print(p.x);
+    print(p.y);
+    print(t.x);
+    print(t.y);
+    print(t.z);
+    x = p.test(2);
+  } else {
+    print(x);
+  }
+}</div>
+      <div class="button-container">
+        <button onclick="runCode()">Run Code</button>
+      </div>
+      <div class="console-output" id="console">Console Output:</div>
+
+      <p><strong><u>Air Hockey Game:</u></strong><br>
+        Dive into an engaging Air Hockey game that combines the excitement of arcade gameplay with a simple AI opponent. Developed using Python and Pygame, this game offers a dynamic player-vs-AI experience, complete with collision physics, paddle control, and a smooth gameplay experience. You can play the game by downloading the source code on my GitHub repository.
+      </p>
+      <div class="video-container">
+        <video controls width="600">
+          <source src="static/demoAirHockey.mp4" type="video/mp4">
+          Votre navigateur ne supporte pas la lecture des vidéos HTML5.
+        </video>
+      </div>
+
+      <p><strong><u>Traffic Sign Recognition using Machine Learning:</u></strong><br>
+        I developed a machine learning model to accurately recognize specific traffic signs through supervised learning algorithms. The project involved extracting and pre-processing data from images, followed by training and evaluating multiple models to identify the most effective approach. Utilizing libraries such as numpy, scikit-learn, matplotlib, and pandas, I efficiently managed data manipulation, model training, and visualization of results. The final model achieved a performance of over 95% accuracy. This project showcases my expertise in data preparation, model optimization, and practical applications of machine learning. You can explore the complete implementation and source code on my GitHub repository.
+      </p>
+      <div class="image-row">
+        <div class="image-column">
+          <img src="static/recadrage.png" alt="Cropped Data">
+        </div>
+        <div class="image-column">
+          <img src="static/apprentissage.png" alt="Performance">
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script src="kawai.bc.js"></script>
+  <script>
+    /**
+     * Transforme le code en remplaçant tout caractère non autorisé par un espace.
+     * Les seuls caractères autorisés sont :
+     *  - Les lettres majuscules et minuscules A-Z, a-z
+     *  - Les chiffres 0-9
+     *  - Les symboles suivants : ; { } ( ) , . + - % * / ! = | & \n \r \t _ > <
+     */
+    function sanitizeCode(code) {
+      const allowedPattern = /[A-Za-z0-9;{}\(\),\.\+\-%\*\/!=|&\n\r\t_><]/;
+      return code.split('').map(char => allowedPattern.test(char) ? char : ' ').join('');
+    }
+
+    function runCode() {
+      const codeEditor = document.querySelector('.code-editor');
+      let code = codeEditor.innerText;
+      // Transformation du code : tous les caractères non autorisés
+      // sont remplacés par un espace classique " ".
+      code = sanitizeCode(code);
+      
+      const consoleOutput = document.getElementById('console');
+      consoleOutput.innerText = "Executing code...";
+
+      try {
+        const result = window.Kawai.interpret(code);
+        consoleOutput.innerText = "Console Output:\n" + result;
+      } catch (error) {
+        consoleOutput.innerText = "Error:\n" + error;
+      }
+    }
+  </script>
+</body>
+</html>
