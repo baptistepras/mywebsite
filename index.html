@@ -173,6 +173,38 @@
       max-width: 100%; /* Les images ne dépasseront pas leur conteneur */
       height: auto; /* Maintient les proportions de l'image */
     }
+
+    .contact-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr; /* 2 colonnes égales */
+      gap: 20px 40px; /* Espacement entre les éléments */
+      margin-top: 20px; /* Espace entre le texte et les icônes */
+    }
+
+    .contact-item p {
+      margin: 0; /* Supprime les marges inutiles */
+      display: flex; /* Force le texte à être aligné */
+      align-items: center; /* Aligne le texte verticalement avec l'icône */
+      white-space: nowrap;
+    }
+
+    .contact-item {
+      display: flex; /* Maintient chaque élément (icône + texte) sur une seule ligne */
+      align-items: center;
+      flex-wrap: nowrap;
+    }
+
+    .contact-item img.icon {
+      width: 30px;
+      height: auto;
+      margin-right: 10px;
+    }
+
+    .contact-item img.logo {
+      width: 120px;
+      height: auto;
+      margin-right: 20px;
+    }
   </style>
 </head>
 <body>
@@ -194,23 +226,30 @@
         <p>
           I am a Bachelor's student at University Paris-Saclay with a strong interest in Artificial Intelligence and Data Science. I aim to further my studies in these fields, with the ultimate goal of pursuing a PhD to contribute to advanced research and innovation.
         </p>
-        <div class="content-item">
-          <img class="icon" src="static/mail.png" alt="Email Icon">
-          <p>
-            <a href="mailto:baptiste_pras@etu-upsaclay.fr" target="_blank">baptiste_pras[at]etu-upsaclay[dot]fr</a>
-          </p>
-        </div>
-        <div class="content-item">
-          <img class="icon" src="static/github.svg" alt="GitHub Icon">
-          <p><a href="https://github.com/baptistepras" target="_blank">https://github.com/baptistepras</a></p>
-        </div>
-        <div class="content-item">
-          <img class="icon" src="static/CV.png" alt="CV Icon">
-          <p>
-            <a href="static/CV_ENG.pdf" target="_blank">CV_English</a>
-            <span class="no-style-space">    </span>
-            <a href="static/CV_FR.pdf" target="_blank">CV_French</a>
-          </p>
+        <div class="contact-container">
+          <div class="contact-item">
+            <img class="icon" src="static/mail.png" alt="Email Icon">
+            <p><a href="mailto:baptiste_pras@etu-upsaclay.fr" target="_blank">baptiste_pras[at]etu-upsaclay[dot]fr</a></p>
+          </div>
+        
+          <div class="contact-item">
+            <img class="icon" src="static/github.svg" alt="GitHub Icon">
+            <p><a href="https://github.com/baptistepras" target="_blank">https://github.com/baptistepras</a></p>
+          </div>
+        
+          <div class="contact-item">
+            <img class="icon" src="static/CV.png" alt="CV Icon">
+            <p>
+              <a href="static/CV_ENG.pdf" target="_blank">CV_English</a>
+              <span style="margin-right: 10px;"></span>
+              <a href="static/CV_FR.pdf" target="_blank">CV_French</a>
+            </p>
+          </div>
+
+          <div class="contact-item">
+            <img class="icon" src="static/linkedin.png" alt="LinkedIn Icon">
+            <p><a href="https://www.linkedin.com/in/baptiste-pras-2a8a80251/" target="_blank">LinkedIn</a></p>
+          </div>
         </div>
       </div>
     </div>
@@ -467,8 +506,10 @@ main {
 <footer style="background-color: #D9CBB5; padding: 20px 0; margin-top: 50px; border-top: 2px solid #C4B79F;">
   <div style="max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 20px;">
     <!-- Mention "Designed by me" -->
-    <div style="font-size: 14px; color: #333;">
-      <p>Designed by me, powered by <a href="https://github.com" target="_blank" style="color: purple; text-decoration: underline;">GitHub</a></p>
+    <div style="font-size: 14px; color: #333; display: flex; align-items: center; gap: 10px;">
+      <p style="margin: 0;">Designed by me, powered by 
+        <a href="https://github.com" target="_blank" style="color: purple; text-decoration: underline;">GitHub</a>
+      </p>
     </div>
   </div>
 </footer>
