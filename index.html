@@ -25,6 +25,7 @@
       header nav {
         font-size: 18px;
         font-weight: bold;
+        margin-left: 80px;
       }
 
       /* Mode clair */
@@ -67,29 +68,36 @@
 
 
     /* Bouton "Toggle Dark Mode" */
-      @media screen and (max-width: 1060px) { /* Mets le bouton à droite sur téléphone (pour éviter de recouvrir le bouton home) */
-        #toggle-theme {
-          right: 10px; 
-          left: auto; 
-        }
+      #toggle-theme {
+        position: absolute;
+        left: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 16px;
+        cursor: pointer;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        transition: background-color 0.3s ease, transform 0.2s ease, color 0.3s ease;
       }
 
       /* Mode clair */
-      #toggle-theme {
-        position: absolute;
-        left: 10px;
-        top: 10px;
-        padding: 10px 20px;
+      body #toggle-theme {
         background-color: #D9CBB5;
         color: #333;
         border: 2px solid #C4B79F;
-        cursor: pointer;
-        font-size: 16px;
-        transition: background-color 0.3s ease, transform 0.2s ease, color 0.3s ease;
       }
-      #toggle-theme:hover {
+      body #toggle-theme:hover {
         background-color: #C4B79F;
         transform: scale(1.05);
+      }
+      body #toggle-theme::before {
+        content: "☀️";
+        font-size: 18px;
       }
 
       /* Mode sombre */
@@ -101,7 +109,11 @@
       body.dark-mode #toggle-theme:hover {
         background-color: #555;
       }
-    
+      body.dark-mode #toggle-theme::before {
+        content: "🌙";
+        color: #fff; 
+      }
+
 
     /* Body */
 
@@ -246,6 +258,12 @@
         width: 120px;
         height: auto;
         margin-right: 20px;
+      }
+      .content-para {
+        margin-bottom: 20px;
+        display: block;
+        text-align: justify; 
+        color: inherit; 
       }
 
       /* Mode clair */
@@ -480,11 +498,11 @@
 
     <section class="section" id="projects">
       <h2>Some of my projects</h2>
-
+      <div class="content-para">
       <p><strong><u>Java-like Interpreter:</strong></u><br>
         Developed a custom interpreter inspired by Java, featuring support for various instructions, basic arithmetic operations, and object-oriented programming concepts such as classes and methods. Designed the language with a strong type system similar to Java’s, ensuring robust and reliable code execution. The interpreter was implemented in OCaml using tools like OCamllex and Menhir for lexical and syntactic analysis, showcasing advanced programming language theory and compiler construction techniques. You can try a simplified version here. The complete source code is available on my <a href="https://github.com/baptistepras/kawa" target="_blank" aria-label="Navigate to kawa project on GitHub">GitHub</a>.
       </p>
-
+    </div>
       <h3>Code Execution</h3>
       <!-- NE SURTOUT PAS CHANGER L'IDENTATION DE CECI -->
       <div contenteditable="true" class="code-editor">// Here is an example of correctly written and typed Kawa code
@@ -543,10 +561,11 @@ main {
 
       <div class="console-output" id="console">Console Output:</div>
 
-
+      <div class="content-para">
       <p><strong><u>Air Hockey Game:</u></strong><br>
         Dive into an engaging Air Hockey game that combines the excitement of arcade gameplay with a simple AI opponent. Developed using Python and Pygame, this game offers a dynamic player-vs-AI experience, with collision physics, paddle control, and a smooth gameplay experience. You can play the game by downloading the source code on my <a href="https://github.com/baptistepras/air_hockey" target="_blank" aria-label="Navigate to Air Hockey project on GitHub">GitHub</a>.
       </p>
+      </div>
 
       <div class="video-container">
         <video controls width="600">
@@ -555,10 +574,11 @@ main {
         </video>
       </div>
 
-
+      <div class="content-para">
       <p><strong><u>Traffic Sign Recognition using Machine Learning:</u></strong><br>
         I developed a machine learning model to accurately recognize specific traffic signs through supervised learning algorithms. The project involved extracting and pre-processing data from images, followed by training and evaluating multiple models to identify the most effective approach. Using libraries such as numpy, scikit-learn, matplotlib, and pandas, I efficiently managed data manipulation, model training, and visualization of results. The final model achieved a performance of over 95% accuracy. This project showcases my expertise in data preparation, model optimization, and practical applications of machine learning. You can explore the complete implementation and source code on my <a href="https://github.com/baptistepras/image_classification" target="_blank" aria-label="Navigate to image classification project on GitHub">GitHub</a>.
       </p>
+      </div>
 
       <div class="image-row">
         <div class="image-column">
