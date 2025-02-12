@@ -7,6 +7,7 @@
 
 <!-- Disclaimer: je ne maitrîse pas JavaScript, de ce fait, les 3 petits scripts présents -->
 <!-- dans ce fichier ont été traduit vers JS depuis un pseudo-code (écrit par moi) par chatGPT -->
+<!-- Le fichier kawai.bc.js a par contre été codé par moi en Ocaml, puis compilé en JS via js_of_ocaml -->
 
 <head>
   <meta charset="UTF-8">
@@ -517,6 +518,7 @@
 
     <section class="section" id="projects">
       <h2>Some of my projects</h2>
+      <div class="content-item">
       <div class="content-para">
       <p><strong><u>Java-like Interpreter:</strong></u><br>
         Developed a custom interpreter inspired by Java, featuring support for various instructions, basic arithmetic operations, and object-oriented programming concepts such as classes and methods. Designed the language with a strong type system similar to Java’s, ensuring robust and reliable code execution. The interpreter was implemented in OCaml using tools like OCamllex and Menhir for lexical and syntactic analysis, showcasing advanced programming language theory and compiler construction techniques. You can try a simplified version here. The complete source code is available on my <a href="https://github.com/baptistepras/kawa" target="_blank" aria-label="Navigate to kawa project on GitHub">GitHub</a>.
@@ -579,7 +581,9 @@ main {
       </div>
 
       <div class="console-output" id="console">Console Output:</div>
+      </div>
 
+      <div class="content-item">
       <div class="content-para">
       <p><strong><u>Spherical Teacher-Student Perceptron</u></strong><br>
         Implementation from scratch of a Spherical Teacher-Student Perceptron, using Python and Numpy (and a bit of Scikit-Learn), and using MatPlotLib for graphics. This project was carried out as part of a research internship on class imbalance in image classification at the LISN, supervised by François LANDES. It focuses on studying class imbalance in image classification using a spherical Teacher-Student perceptron. This approach helps analyze how imbalanced training data affects the performance in classification models. You can explore the complete implementation and source code on my <a href="https://github.com/baptistepras/spherical-teacher-student-perceptron/tree/main">GitHub</a>.
@@ -594,20 +598,24 @@ main {
           <img src="static/N5000_D500_b-1.5_hinge_gradient.jpg" alt="Hinge">
         </div>
       </div>
+      </div>
 
+      <div class="content-item">
       <div class="content-para">
       <p><strong><u>Air Hockey Game:</u></strong><br>
         Dive into an engaging Air Hockey game that combines the excitement of arcade gameplay with a simple AI opponent. Developed using Python and Pygame, this game offers a dynamic player-vs-AI experience, with collision physics, paddle control, and a smooth gameplay experience. You can play the game by downloading the source code on my <a href="https://github.com/baptistepras/air_hockey" target="_blank" aria-label="Navigate to Air Hockey project on GitHub">GitHub</a>.
       </p>
-      </div>
-
+      </div
+        
       <div class="video-container">
         <video controls width="600">
           <source src="static/demoAirHockey.mp4" type="video/mp4">
           Votre navigateur ne supporte pas la lecture des vidéos HTML5.
         </video>
       </div>
+      </div>
 
+      <div class="content-item">
       <div class="content-para">
       <p><strong><u>Traffic Sign Recognition using Machine Learning:</u></strong><br>
         I developed a machine learning model to accurately recognize specific traffic signs through supervised learning algorithms. The project involved extracting and pre-processing data from images, followed by training and evaluating multiple models to identify the most effective approach. Using libraries such as numpy, scikit-learn, matplotlib, and pandas, I efficiently managed data manipulation, model training, and visualization of results. The final model achieved a performance of over 95% accuracy. This project showcases my expertise in data preparation, model optimization, and practical applications of machine learning. You can explore the complete implementation and source code on my <a href="https://github.com/baptistepras/image_classification" target="_blank" aria-label="Navigate to image classification project on GitHub">GitHub</a>.
@@ -621,6 +629,7 @@ main {
         <div class="image-column">
           <img src="static/apprentissage.png" alt="Performance">
         </div>
+      </div>
       </div>
 
       <p>You can find more examples of my work on my <a href="https://github.com/baptistepras" target="_blank" aria-label="Navigate to my GitHub">GitHub</a>.</p>
