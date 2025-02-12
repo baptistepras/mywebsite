@@ -52,10 +52,17 @@
       header nav a:hover {
         color: #6A4E77;
       }
+      .submenu {
+        background-color: #FBF5E7;
+        color: #333;
+      }
+      .submenu a:hover {
+        color: #6A4E77;
+      }
 
       /* Mode sombre */
       body.dark-mode header {
-        background-color: #333;
+      background-color: #333;
         color: #f5f5f5;
         border-bottom: 2px solid #444; 
       }
@@ -63,6 +70,13 @@
         color: #f5f5f5;
       }
       body.dark-mode header nav a:hover {
+        color: #bbb;
+      }
+      body.dark-mode .submenu {
+        background-color: #333;
+        color: #f5f5f5;
+      }
+      body.dark-mode .submenu a:hover {
         color: #bbb;
       }
 
@@ -459,7 +473,15 @@
       <a data-target="home" aria-label="Navigate to home section">Home</a>
       <a data-target="education" aria-label="Navigate to education section">Education</a>
       <a data-target="experience" aria-label="Navigate to professional experience section">Professional Experience</a>
-      <a data-target="projects" aria-label="Navigate to projects section">Projects</a>
+      <div class="projects-container" style="position: relative; display: inline-block;">
+        <a data-target="projects" aria-label="Navigate to projects section" id="projects-link">Projects</a>
+        <div class="submenu" id="projects-submenu" style="display: none; position: absolute; background-color: #FBF5E7; padding: 10px; border: 2px solid #C4B79F; border-radius: 6px;">
+          <a data-target="kawa" style="display: block; margin-bottom: 5px; text-decoration: none; color: #333;">Java-like Interpreter</a>
+          <a data-target="perceptron" style="display: block; margin-bottom: 5px; text-decoration: none; color: #333;">Spherical Perceptron</a>
+          <a data-target="air-hockey" style="display: block; margin-bottom: 5px; text-decoration: none; color: #333;">Air Hockey Game</a>
+          <a data-target="classification" style="display: block; text-decoration: none; color: #333;">Traffic Sign Recognition</a>
+        </div>
+      </div>
       <a data-target="skills" aria-label="Navigate to skills section">Skills</a>
     </nav>
   </header>
@@ -541,7 +563,7 @@
 
     <section class="section" id="projects">
       <h2>Some of my projects</h2>
-      <div class="content-box">
+      <div class="content-box" id="kawa">
         <div class="content-para">
         <p><strong><u>Java-like Interpreter:</strong></u><br>
           Developed a custom interpreter inspired by Java, featuring support for various instructions, basic arithmetic operations, and object-oriented programming concepts such as classes and methods. Designed the language with a strong type system similar to Java’s, ensuring robust and reliable code execution. The interpreter was implemented in OCaml using tools like OCamllex and Menhir for lexical and syntactic analysis, showcasing advanced programming language theory and compiler construction techniques. You can try a simplified version here. The complete source code is available on my <a href="https://github.com/baptistepras/kawa" target="_blank" aria-label="Navigate to kawa project on GitHub">GitHub</a>.
@@ -606,9 +628,9 @@ main {
         <div class="console-output" id="console">Console Output:</div>
       </div>
 
-      <div class="content-box">
+      <div class="content-box" id="perceptron">
         <div class="content-para">
-        <p><strong><u>Spherical Teacher-Student Perceptron</u></strong><br>
+        <p><strong><u>Spherical Teacher-Student Perceptron:</u></strong><br>
           Implementation from scratch of a Spherical Teacher-Student Perceptron, using Python and Numpy (and a bit of Scikit-Learn), and using MatPlotLib for graphics. This project was carried out as part of a research internship on class imbalance in image classification at the LISN, supervised by François LANDES. It focuses on studying class imbalance in image classification using a spherical Teacher-Student perceptron. This approach helps analyze how imbalanced training data affects the performance in classification models. You can explore the complete implementation and source code on my <a href="https://github.com/baptistepras/spherical-teacher-student-perceptron/tree/main">GitHub</a>.
         </p>
         </div>
@@ -623,7 +645,7 @@ main {
         </div>
       </div>
 
-      <div class="content-box">
+      <div class="content-box" id="air-hockey">
         <div class="content-para">
         <p><strong><u>Air Hockey Game:</u></strong><br>
           Dive into an engaging Air Hockey game that combines the excitement of arcade gameplay with a simple AI opponent. Developed using Python and Pygame, this game offers a dynamic player-vs-AI experience, with collision physics, paddle control, and a smooth gameplay experience. You can play the game by downloading the source code on my <a href="https://github.com/baptistepras/air_hockey" target="_blank" aria-label="Navigate to Air Hockey project on GitHub">GitHub</a>.
@@ -638,7 +660,7 @@ main {
         </div>
       </div>
 
-      <div class="content-box">
+      <div class="content-box" id="classification">
         <div class="content-para">
         <p><strong><u>Traffic Sign Recognition using Machine Learning:</u></strong><br>
           I developed a machine learning model to accurately recognize specific traffic signs through supervised learning algorithms. The project involved extracting and pre-processing data from images, followed by training and evaluating multiple models to identify the most effective approach. Using libraries such as numpy, scikit-learn, matplotlib, and pandas, I efficiently managed data manipulation, model training, and visualization of results. The final model achieved a performance of over 95% accuracy. This project showcases my expertise in data preparation, model optimization, and practical applications of machine learning. You can explore the complete implementation and source code on my <a href="https://github.com/baptistepras/image_classification" target="_blank" aria-label="Navigate to image classification project on GitHub">GitHub</a>.
@@ -777,21 +799,33 @@ main {
 
     <!-- Navigation entre les sections (chatGPT) -->
     <script>
-    document.querySelectorAll('nav a').forEach(link => {
-      link.addEventListener('click', function(event) {
-        event.preventDefault();
-        const targetId = this.getAttribute('data-target');
-        const targetSection = document.getElementById(targetId);
-        if (targetSection) {
-          targetSection.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'    
-          });
-        }
+      document.querySelectorAll('nav a').forEach(link => {
+        link.addEventListener('click', function(event) {
+          event.preventDefault();
+      const targetId = this.getAttribute('data-target');
+      const targetSection = document.getElementById(targetId);
+      if (targetSection) {
+        targetSection.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'    
+        });
+      }
       });
-    });
+      });
     </script>
 
+    <script>
+      const projectsLink = document.getElementById('projects-link');
+      const projectsSubmenu = document.getElementById('projects-submenu');
+      const projectsContainer = document.querySelector('.projects-container');
+      projectsContainer.addEventListener('mouseenter', () => {
+        projectsSubmenu.style.display = 'block';
+      });
+
+      projectsContainer.addEventListener('mouseleave', () => {
+        projectsSubmenu.style.display = 'none';
+      });
+    </script>
 
     <!-- Activation/Désactivation du mode sombre (chatGPT) -->
     <script>
