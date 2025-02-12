@@ -475,7 +475,7 @@
       <a data-target="experience" aria-label="Navigate to professional experience section">Professional Experience</a>
       <div class="projects-container" style="position: relative; display: inline-block;">
         <a data-target="projects" aria-label="Navigate to projects section" id="projects-link">Projects</a>
-        <div class="submenu" id="projects-submenu" style="display: none; position: absolute; background-color: #FBF5E7; padding: 10px; border: 2px solid #C4B79F; border-radius: 6px;">
+        <div class="submenu" id="projects-submenu">
           <a data-target="kawa" style="display: block; margin-bottom: 5px; text-decoration: none; color: #333;">Java-like Interpreter</a>
           <a data-target="perceptron" style="display: block; margin-bottom: 5px; text-decoration: none; color: #333;">Spherical Perceptron</a>
           <a data-target="air-hockey" style="display: block; margin-bottom: 5px; text-decoration: none; color: #333;">Air Hockey Game</a>
@@ -815,6 +815,19 @@ main {
     </script>
 
     <script>
+      document.querySelectorAll('nav a').forEach(link => {
+        link.addEventListener('click', function(event) {
+          event.preventDefault();
+      const targetId = this.getAttribute('data-target');
+      const targetSection = document.getElementById(targetId);
+      if (targetSection) {
+        targetSection.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'    
+          });
+        }
+      });
+      });
       const projectsLink = document.getElementById('projects-link');
       const projectsSubmenu = document.getElementById('projects-submenu');
       const projectsContainer = document.querySelector('.projects-container');
