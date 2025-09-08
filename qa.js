@@ -78,5 +78,9 @@ const qaData = [
   {
     question: "Tell me more about yourself",
     answer: "Besides my passion for Artificial Intelligence, I play basketball, I enjoy hiking, and I participated in several algorithmic contests. I particularly enjoy solving algorithmic problems in graphs."
-  }
+  },
+  {
+    question: "How can I contact you?",
+    answer: "You can contact me on my institutional email address: baptiste.pras@etu-upsaclay.fr"
+  },
 ];
