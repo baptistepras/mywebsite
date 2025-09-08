@@ -954,11 +954,11 @@ main {
       document.addEventListener('DOMContentLoaded', updateIconsForTheme);
     </script>
 
-<div id="chatbox" style="display: none; position: fixed; bottom: 20px; right: 20px; width: 300px; background: white; border: 2px solid #ccc; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.2); z-index: 9999; padding: 10px; font-size: 14px;">
-  <div style="font-weight: bold; margin-bottom: 5px;">Ask me anything!</div>
-    <input id="chat-question" type="text" placeholder="Type your question..." style="width: 100%; padding: 5px; margin-bottom: 5px;">
-  <div id="chat-answer" style="min-height: 30px; margin-bottom: 5px;"></div>
-  <button id="chat-flag" style="display: none; background: #ffdddd; border: 1px solid #ffaaaa; padding: 5px; border-radius: 5px;">⚠️ This answer is wrong</button>
+<div id="chatbox" class="chatbox hidden">
+  <div class="chat-title">Ask me anything!</div>
+    <input id="chat-question" type="text" placeholder="Type your question..." class="chat-input" />
+  <div id="chat-answer" class="chat-answer"></div>
+  <button id="chat-flag" class="chat-flag hidden">⚠️ This answer is wrong</button>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.6.2/dist/fuse.min.js"></script>
