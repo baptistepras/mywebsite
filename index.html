@@ -900,7 +900,6 @@ main {
             <li><img src="static/french.png" alt="french" style="width: 30px; vertical-align: middle; margin-right: 10px;">Native</li>
             <li><img src="static/english.webp" alt="english" style="width: 30px; vertical-align: middle; margin-right: 10px;">Fluent (C2) - TOEFL: 108/120</li>
             <li><img src="static/russian.png" alt="russian" style="width: 30px; vertical-align: middle; margin-right: 10px;">Basic Knowledge (A1-A2)</li>
-            <li><img src="static/german.png" alt="german" style="width: 30px; vertical-align: middle; margin-right: 10px;">Basic Knowledge (A1-A2)</li>
           </ul>
         </div>
     
@@ -1053,6 +1052,7 @@ main {
     <input id="chat-question" type="text" placeholder="Type your question..." class="chat-input" />
   <div id="chat-answer" class="chat-answer"></div>
   <button id="chat-flag" class="chat-flag hidden">⚠️ This answer is wrong</button>
+  <button id="chat-show-questions" class="chat-button">📝 See all questions</button>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.6.2/dist/fuse.min.js"></script>
@@ -1064,6 +1064,7 @@ main {
   const chatInput = document.getElementById("chat-question");
   const chatAnswer = document.getElementById("chat-answer");
   const chatFlag = document.getElementById("chat-flag");
+  const chatShowQuestions = document.getElementById("chat-show-questions");
 
   const fuse = new Fuse(
     qaData.map(obj => ({ ...obj, question: obj.question.toLowerCase() })),
@@ -1120,6 +1121,13 @@ main {
       answer: a
     });
   });
+
+// Show all questions
+chatShowQuestions.addEventListener("click", () => {
+  const questionsList = qaData.map(q => `• ${q.question}`).join("\n");
+  chatAnswer.textContent = `Here are the available questions:\n\n${questionsList}`;
+  chatFlag.classList.add("hidden");
+});
 </script>
   
 </body>
