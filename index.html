@@ -1135,6 +1135,13 @@ main {
   // Show/hide all questions
   chatShowQuestions.addEventListener("click", () => {
   if (!showingQuestions) {
+    // Create a scrollable container
+    const scrollContainer = document.createElement("div");
+    scrollContainer.style.maxHeight = "200px";    
+    scrollContainer.style.overflowY = "auto";   
+    scrollContainer.style.marginTop = "0.5em";
+    scrollContainer.style.paddingRight = "5px";    
+
     // Create HTML list
     const ul = document.createElement("ul");
     ul.style.padding = "0";
@@ -1146,9 +1153,9 @@ main {
       li.textContent = `• ${q.question}`;
       li.style.cursor = "pointer";
       li.style.margin = "4px 0";
-      li.style.color = "#00bcd4"; // Adapt to your theme
+      li.style.color = "#00bcd4";
       li.style.textDecoration = "underline";
-      
+
       li.addEventListener("click", () => {
         chatInput.value = q.question;
         const event = new KeyboardEvent("keypress", { key: "Enter" });
@@ -1158,8 +1165,12 @@ main {
       ul.appendChild(li);
     });
 
+    scrollContainer.appendChild(ul);
+
     chatAnswer.innerHTML = "<strong>Here are the available questions:</strong>";
-    chatAnswer.appendChild(ul);
+    chatAnswer.appendChild(scrollContainer);
+
+    chatAnswer.style.whiteSpace = "normal";
     chatFlag.classList.add("hidden");
     chatShowQuestions.textContent = "🔽 Hide questions";
     showingQuestions = true;
@@ -1168,7 +1179,7 @@ main {
     chatShowQuestions.textContent = "📝 See all questions";
     showingQuestions = false;
   }
-  });
+});
 </script>
   
 </body>
