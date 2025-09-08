@@ -217,6 +217,7 @@
     }
 
     .chat-input {
+      box-sizing: border-box;
       width: 100%;
       padding: 6px 8px;
       margin-bottom: 10px;
@@ -250,6 +251,17 @@
       background-color: #552222;
       color: #fdd;
       border-color: #aa4444;
+    }
+
+    .chat-subtitle {
+      font-size: 12px;
+      margin-bottom: 10px;
+      color: #666;
+      line-height: 1.4;
+    }
+
+    body.dark-mode .chat-subtitle {
+      color: #bbb;
     }
 
     /* Utility classes */
@@ -1033,6 +1045,11 @@ main {
 
 <div id="chatbox" class="chatbox hidden">
   <div class="chat-title">Ask me anything!</div>
+    <p class="chat-subtitle">
+    This is an experimental assistant.<br>
+    You can ask questions <strong>only about me</strong> (education, projects, jobs...).<br>
+    If something is wrong or missing, please let me know below!
+    </p>
     <input id="chat-question" type="text" placeholder="Type your question..." class="chat-input" />
   <div id="chat-answer" class="chat-answer"></div>
   <button id="chat-flag" class="chat-flag hidden">⚠️ This answer is wrong</button>
@@ -1050,7 +1067,8 @@ main {
 
   const fuse = new Fuse(qaData, {
     keys: ["question"],
-    threshold: 0.4
+    threshold: 0.2,
+    distance: 50
   });
 
   // Toggle chat visibility
@@ -1063,14 +1081,18 @@ main {
     if (e.key === "Enter") {
       const query = chatInput.value.trim();
       const result = fuse.search(query);
+
       if (result.length > 0) {
-        chatAnswer.textContent = result[0].item.answer;
+        const matchedAnswer = result[0].item.answer;
+        chatAnswer.textContent = matchedAnswer;
         chatFlag.classList.remove("hidden");
         chatFlag.dataset.question = query;
-        chatFlag.dataset.answer = result[0].item.answer;
+        chatFlag.dataset.answer = matchedAnswer;
       } else {
         chatAnswer.textContent = "❌ Sorry, I don’t understand this question yet.";
-        chatFlag.classList.add("hidden");
+        chatFlag.classList.remove("hidden");
+        chatFlag.dataset.question = query;
+        chatFlag.dataset.answer = "(No answer found)";
       }
     }
   });
@@ -1080,10 +1102,12 @@ main {
     const q = chatFlag.dataset.question;
     const a = chatFlag.dataset.answer;
 
-    alert("⚠️ Thanks! I’ll improve this answer soon.\n(Unfortunately, storing feedback automatically isn’t possible with GitHub Pages, but you’ve been heard!)");
+    alert("⚠️ Thanks for your feedback!\nThis assistant is still being improved.\n(Your feedback was noted in the console.)");
 
-    // Fallback idea: send to webhook or display in console for now
-    console.warn("User flagged this as incorrect:", {question: q, answer: a});
+    console.warn("User flagged this as incorrect or incomplete:", {
+      question: q,
+      answer: a
+    });
   });
 </script>
   
