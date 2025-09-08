@@ -1075,6 +1075,8 @@ main {
     }
   );
 
+  let showingQuestions = false;
+
   // Toggle chat visibility
   toggleChat.addEventListener("click", () => {
     chatbox.classList.toggle("hidden");
@@ -1087,6 +1089,7 @@ main {
 
       if (query.length < 5) {
         chatAnswer.textContent = "❌ Please ask a more complete question (minimum 5 characters).";
+        chatAnswer.style.whiteSpace = "pre-line";
         chatFlag.classList.remove("hidden");
         chatFlag.dataset.question = query;
         chatFlag.dataset.answer = "(Too short to process)";
@@ -1098,14 +1101,20 @@ main {
       if (result.length > 0) {
         const matchedAnswer = result[0].item.answer;
         chatAnswer.textContent = matchedAnswer;
+        chatAnswer.style.whiteSpace = "normal";
         chatFlag.classList.remove("hidden");
         chatFlag.dataset.question = query;
         chatFlag.dataset.answer = matchedAnswer;
+        showingQuestions = false;
+        chatShowQuestions.textContent = "📝 See all questions";
       } else {
         chatAnswer.textContent = "❌ Sorry, I don’t understand this question yet.";
+        chatAnswer.style.whiteSpace = "pre-line";
         chatFlag.classList.remove("hidden");
         chatFlag.dataset.question = query;
         chatFlag.dataset.answer = "(No answer found)";
+        showingQuestions = false;
+        chatShowQuestions.textContent = "📝 See all questions";
       }
     }
   });
@@ -1123,12 +1132,21 @@ main {
     });
   });
 
-// Show all questions
-chatShowQuestions.addEventListener("click", () => {
-  const questionsList = qaData.map(q => `• ${q.question}`).join("\n");
-  chatAnswer.textContent = `Here are the available questions:\n\n${questionsList}`;
-  chatFlag.classList.add("hidden");
-});
+  // Show/hide all questions
+  chatShowQuestions.addEventListener("click", () => {
+    if (!showingQuestions) {
+      const questionsList = qaData.map(q => `• ${q.question}`).join("\n");
+      chatAnswer.textContent = `Here are the available questions:\n\n${questionsList}`;
+      chatAnswer.style.whiteSpace = "pre-line";
+      chatFlag.classList.add("hidden");
+      chatShowQuestions.textContent = "🔽 Hide questions";
+      showingQuestions = true;
+    } else {
+      chatAnswer.textContent = "";
+      chatShowQuestions.textContent = "📝 See all questions";
+      showingQuestions = false;
+    }
+  });
 </script>
   
 </body>
