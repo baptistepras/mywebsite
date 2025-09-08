@@ -180,7 +180,84 @@
       background-color: #555;
     }
 
+    
+  /* Chatbox container */
+    .chatbox {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 300px;
+      border-radius: 15px;
+      padding: 15px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+      z-index: 9999;
+      font-size: 14px;
+      transition: all 0.3s ease;
+      border: 2px solid #C4B79F;
+    }
 
+    /* Light mode */
+    body:not(.dark-mode) .chatbox {
+      background-color: #fefefe;
+      color: #222;
+      border-color: #C4B79F;
+    }
+
+    /* Dark mode */
+    body.dark-mode .chatbox {
+      background-color: #222;
+      color: #f0f0f0;
+      border-color: #666;
+    }
+
+    .chat-title {
+      font-weight: bold;
+      margin-bottom: 8px;
+      font-size: 16px;
+    }
+
+    .chat-input {
+      width: 100%;
+      padding: 6px 8px;
+      margin-bottom: 10px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-size: 14px;
+    }
+
+    body.dark-mode .chat-input {
+      background-color: #333;
+      color: #fff;
+      border-color: #555;
+    }
+
+    .chat-answer {
+      margin-bottom: 10px;
+      line-height: 1.4;
+    }
+
+    .chat-flag {
+      background-color: #ffdddd;
+      color: #800;
+      border: 1px solid #ffaaaa;
+      padding: 5px 8px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 13px;
+    }
+
+    body.dark-mode .chat-flag {
+      background-color: #552222;
+      color: #fdd;
+      border-color: #aa4444;
+    }
+
+    /* Utility classes */
+    .hidden {
+      display: none;
+    }
+
+    
     /* Body */
 
       /* Mode clair */
@@ -978,7 +1055,7 @@ main {
 
   // Toggle chat visibility
   toggleChat.addEventListener("click", () => {
-    chatbox.style.display = (chatbox.style.display === "none") ? "block" : "none";
+    chatbox.classList.toggle("hidden");
   });
 
   // Handle user question
@@ -988,12 +1065,12 @@ main {
       const result = fuse.search(query);
       if (result.length > 0) {
         chatAnswer.textContent = result[0].item.answer;
-        chatFlag.style.display = "inline-block";
+        chatFlag.classList.remove("hidden");
         chatFlag.dataset.question = query;
         chatFlag.dataset.answer = result[0].item.answer;
       } else {
         chatAnswer.textContent = "❌ Sorry, I don’t understand this question yet.";
-        chatFlag.style.display = "none";
+        chatFlag.classList.add("hidden");
       }
     }
   });
