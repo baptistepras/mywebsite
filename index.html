@@ -1065,10 +1065,13 @@ main {
   const chatAnswer = document.getElementById("chat-answer");
   const chatFlag = document.getElementById("chat-flag");
 
-  const fuse = new Fuse(qaData, {
-    keys: ["question"],
-    threshold: 0.2 // Only fuzzy matching, no distance constraints
-  });
+  const fuse = new Fuse(
+    qaData.map(obj => ({ ...obj, question: obj.question.toLowerCase() })),
+    {
+      keys: ["question"],
+      threshold: 0.4
+    }
+  );
 
   // Toggle chat visibility
   toggleChat.addEventListener("click", () => {
@@ -1079,7 +1082,16 @@ main {
   chatInput.addEventListener("keypress", (e) => {
     if (e.key === "Enter") {
       const query = chatInput.value.trim();
-      const result = fuse.search(query);
+
+      if (query.length < 5) {
+        chatAnswer.textContent = "❌ Please ask a more complete question (minimum 5 characters).";
+        chatFlag.classList.remove("hidden");
+        chatFlag.dataset.question = query;
+        chatFlag.dataset.answer = "(Too short to process)";
+        return;
+      }
+
+      const result = fuse.search(query.toLowerCase());
 
       if (result.length > 0) {
         const matchedAnswer = result[0].item.answer;
@@ -1101,7 +1113,7 @@ main {
     const q = chatFlag.dataset.question;
     const a = chatFlag.dataset.answer;
 
-    alert("⚠️ Thanks for your feedback!\nThis assistant is still being improved.");
+    alert("⚠️ Thanks for your feedback!\nThis assistant is still being improved.\n(Your feedback was noted in the console.)");
 
     console.warn("User flagged this as incorrect or incomplete:", {
       question: q,
