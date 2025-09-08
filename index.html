@@ -647,7 +647,7 @@
       <div class="intro-text">
 
         <h2>Baptiste Pras</h2>
-        <p>I am a Masters's student in Artificial Intelligence at University Paris-Saclay. I aim to further my studies in these fields, with the ultimate goal of pursuing a PhD in Natural Language Processing or Machine Learning. I am looking for an 3-4 months internship starting in May.</p>
+        <p>I am a Master's student in Artificial Intelligence at University Paris-Saclay. I aim to further my studies in these fields, with the ultimate goal of pursuing a PhD in Natural Language Processing or Machine Learning. I am looking for an 3-4 months internship starting in May.</p>
 
         <div class="contact-container">
 
@@ -1043,8 +1043,8 @@ main {
       document.addEventListener('DOMContentLoaded', updateIconsForTheme);
     </script>
 
-<div id="chatbox" class="chatbox hidden">
-  <div class="chat-title">Ask me anything!</div>
+<div id="chatbox" class="chatbox hidden" role="dialog" aria-live="polite" aria-labelledby="chatbox-title" aria-label="Chat assistant">
+  <div class="chat-title" id="chatbox-title">Ask me anything!</div>
     <p class="chat-subtitle">
     This is an experimental assistant.<br>
     You can ask questions <strong>only about me</strong> (education, projects, jobs...) and in English.<br>
@@ -1053,7 +1053,7 @@ main {
     <input id="chat-question" type="text" placeholder="Type your question..." class="chat-input" />
   <div id="chat-answer" class="chat-answer"></div>
   <button id="chat-flag" class="chat-flag hidden">⚠️ This answer is wrong</button>
-  <button id="chat-show-questions" class="chat-button">📝 See all questions</button>
+  <button id="chat-show-questions" class="chat-button" aria-expanded="false" aria-controls="chat-answer">📝 See all questions</button>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.6.2/dist/fuse.min.js"></script>
@@ -1080,6 +1080,7 @@ main {
   // Toggle chat visibility
   toggleChat.addEventListener("click", () => {
     chatbox.classList.toggle("hidden");
+    chatInput.focus();
   });
 
   // Handle user question
@@ -1188,10 +1189,12 @@ main {
       chatAnswer.style.whiteSpace = "normal";
       chatFlag.classList.add("hidden");
       chatShowQuestions.textContent = "🔽 Hide questions";
+      chatShowQuestions.setAttribute("aria-expanded", "true");
       showingQuestions = true;
     } else {
       chatAnswer.textContent = "";
       chatShowQuestions.textContent = "📝 See all questions";
+      chatShowQuestions.setAttribute("aria-expanded", "false");
       showingQuestions = false;
     }
   });
