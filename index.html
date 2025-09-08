@@ -1119,67 +1119,82 @@ main {
     }
   });
 
-  // Handle user feedback on wrong answers
+  // Send feedback to Formspree
   chatFlag.addEventListener("click", () => {
     const q = chatFlag.dataset.question;
     const a = chatFlag.dataset.answer;
 
-    alert("⚠️ Thanks for your feedback!\nThis assistant is still being improved.\n(Your feedback was noted in the console.)");
-
-    console.warn("User flagged this as incorrect or incomplete:", {
-      question: q,
-      answer: a
+    fetch("https://formspree.io/f/mrbarvev", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        question: q,
+        answer: a,
+        source: "chatbot-feedback"
+      })
+    })
+    .then(response => {
+      if (response.ok) {
+        alert("⚠️ Thanks for your feedback! We’ll use it to improve the assistant.");
+      } else if (response.status === 402) {
+        alert("⚠️ Feedback limit reached this month. Try again later!");
+      } else {
+        alert("❌ Failed to send feedback. Please try again later.");
+      }
+    })
+    .catch(() => {
+      alert("❌ Failed to send feedback. Please check your connection.");
     });
   });
 
   // Show/hide all questions
   chatShowQuestions.addEventListener("click", () => {
-  if (!showingQuestions) {
-    // Create a scrollable container
-    const scrollContainer = document.createElement("div");
-    scrollContainer.style.maxHeight = "200px";    
-    scrollContainer.style.overflowY = "auto";   
-    scrollContainer.style.marginTop = "0.5em";
-    scrollContainer.style.paddingRight = "5px";    
+    if (!showingQuestions) {
+      const scrollContainer = document.createElement("div");
+      scrollContainer.style.maxHeight = "200px";
+      scrollContainer.style.overflowY = "auto";
+      scrollContainer.style.marginTop = "0.5em";
+      scrollContainer.style.paddingRight = "5px";
 
-    // Create HTML list
-    const ul = document.createElement("ul");
-    ul.style.padding = "0";
-    ul.style.margin = "0";
-    ul.style.listStyle = "none";
+      const ul = document.createElement("ul");
+      ul.style.padding = "0";
+      ul.style.margin = "0";
+      ul.style.listStyle = "none";
 
-    qaData.forEach(q => {
-      const li = document.createElement("li");
-      li.textContent = `• ${q.question}`;
-      li.style.cursor = "pointer";
-      li.style.margin = "4px 0";
-      li.style.color = "#00bcd4";
-      li.style.textDecoration = "underline";
+      qaData.forEach(q => {
+        const li = document.createElement("li");
+        li.textContent = `• ${q.question}`;
+        li.style.cursor = "pointer";
+        li.style.margin = "4px 0";
+        li.style.color = "#00bcd4";
+        li.style.textDecoration = "underline";
 
-      li.addEventListener("click", () => {
-        chatInput.value = q.question;
-        const event = new KeyboardEvent("keypress", { key: "Enter" });
-        chatInput.dispatchEvent(event);
+        li.addEventListener("click", () => {
+          chatInput.value = q.question;
+          const event = new KeyboardEvent("keypress", { key: "Enter" });
+          chatInput.dispatchEvent(event);
+        });
+
+        ul.appendChild(li);
       });
 
-      ul.appendChild(li);
-    });
+      scrollContainer.appendChild(ul);
 
-    scrollContainer.appendChild(ul);
+      chatAnswer.innerHTML = "<strong>Here are the available questions:</strong>";
+      chatAnswer.appendChild(scrollContainer);
 
-    chatAnswer.innerHTML = "<strong>Here are the available questions:</strong>";
-    chatAnswer.appendChild(scrollContainer);
-
-    chatAnswer.style.whiteSpace = "normal";
-    chatFlag.classList.add("hidden");
-    chatShowQuestions.textContent = "🔽 Hide questions";
-    showingQuestions = true;
-  } else {
-    chatAnswer.textContent = "";
-    chatShowQuestions.textContent = "📝 See all questions";
-    showingQuestions = false;
-  }
-});
+      chatAnswer.style.whiteSpace = "normal";
+      chatFlag.classList.add("hidden");
+      chatShowQuestions.textContent = "🔽 Hide questions";
+      showingQuestions = true;
+    } else {
+      chatAnswer.textContent = "";
+      chatShowQuestions.textContent = "📝 See all questions";
+      showingQuestions = false;
+    }
+  });
 </script>
   
 </body>
