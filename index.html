@@ -1134,18 +1134,40 @@ main {
 
   // Show/hide all questions
   chatShowQuestions.addEventListener("click", () => {
-    if (!showingQuestions) {
-      const questionsList = qaData.map(q => `• ${q.question}`).join("\n");
-      chatAnswer.textContent = `Here are the available questions:\n\n${questionsList}`;
-      chatAnswer.style.whiteSpace = "pre-line";
-      chatFlag.classList.add("hidden");
-      chatShowQuestions.textContent = "🔽 Hide questions";
-      showingQuestions = true;
-    } else {
-      chatAnswer.textContent = "";
-      chatShowQuestions.textContent = "📝 See all questions";
-      showingQuestions = false;
-    }
+  if (!showingQuestions) {
+    // Create HTML list
+    const ul = document.createElement("ul");
+    ul.style.padding = "0";
+    ul.style.margin = "0";
+    ul.style.listStyle = "none";
+
+    qaData.forEach(q => {
+      const li = document.createElement("li");
+      li.textContent = `• ${q.question}`;
+      li.style.cursor = "pointer";
+      li.style.margin = "4px 0";
+      li.style.color = "#00bcd4"; // Adapt to your theme
+      li.style.textDecoration = "underline";
+      
+      li.addEventListener("click", () => {
+        chatInput.value = q.question;
+        const event = new KeyboardEvent("keypress", { key: "Enter" });
+        chatInput.dispatchEvent(event);
+      });
+
+      ul.appendChild(li);
+    });
+
+    chatAnswer.innerHTML = "<strong>Here are the available questions:</strong>";
+    chatAnswer.appendChild(ul);
+    chatFlag.classList.add("hidden");
+    chatShowQuestions.textContent = "🔽 Hide questions";
+    showingQuestions = true;
+  } else {
+    chatAnswer.textContent = "";
+    chatShowQuestions.textContent = "📝 See all questions";
+    showingQuestions = false;
+  }
   });
 </script>
   
