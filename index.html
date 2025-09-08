@@ -1198,6 +1198,14 @@ main {
       showingQuestions = false;
     }
   });
+
+  // Close chatbox when clicking outside
+  document.addEventListener("click", (e) => {
+    const isClickInside = chatbox.contains(e.target) || toggleChat.contains(e.target);
+    if (!isClickInside) {
+      chatbox.classList.add("hidden");
+    }
+  });
 </script>
   
 </body>
