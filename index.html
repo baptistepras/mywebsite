@@ -1067,7 +1067,7 @@ main {
 
   const fuse = new Fuse(qaData, {
     keys: ["question"],
-    threshold: 0.25,
+    threshold: 0.2 // Only fuzzy matching, no distance constraints
   });
 
   // Toggle chat visibility
@@ -1101,7 +1101,7 @@ main {
     const q = chatFlag.dataset.question;
     const a = chatFlag.dataset.answer;
 
-    alert("⚠️ Thanks for your feedback!\nThis assistant is still being improved.\n(Your feedback was noted in the console.)");
+    alert("⚠️ Thanks for your feedback!\nThis assistant is still being improved.");
 
     console.warn("User flagged this as incorrect or incomplete:", {
       question: q,
