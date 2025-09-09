@@ -81,6 +81,6 @@ const qaData = [
   },
   {
     question: "How can I contact you?",
-    answer: "You can contact me on my institutional email address: baptiste.pras@etu-upsaclay.fr"
+    answer: "You can contact me on my institutional email address: baptiste.pras@universite-paris-saclay.fr"
   },
 ];
