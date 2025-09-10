@@ -719,6 +719,77 @@
 
     <section class="section" id="projects">
       <h2>Some of my projects</h2>
+
+      <div class="content-box" id="nbamvp">
+        <div class="content-para">
+        <p><strong><u>NBA MVP Prediction Model:</u></strong><br>
+           Developed a machine learning pipeline to predict the NBA Most Valuable Player (MVP) using player and team statistics collected from publicly available sources. The project involved data cleaning and structuring, followed by feature engineering and attribute selection to optimize predictive performance. Several models were implemented and compared with Scikit-Learn, and the best configuration achieved 80.4% accuracy in reproducing the actual MVP outcome. You can explore the complete implementation and source code on my <a href="https://github.com/baptistepras/nba-mvp-prediction-model" target="_blank" aria-label="Navigate to NBA MVP Prediction Model project on GitHub">GitHub</a>.
+        </p>
+        </div>
+
+        <div class="image-row">
+          <div class="image-column">
+            <img src="static/dualsudoku.png" alt="DualSudoku Grid">
+          </div>
+          <div class="image-column">
+              <img src="static/alphabeta.jpg" alt="Alpha-Beta">
+          </div>
+        </div>
+      </div>
+
+      <div class="content-box" id="dualsudoku">
+        <div class="content-para">
+        <p><strong><u>DualSudoku AI Agent:</u></strong><br>
+          Design and implementation of an <strong>AI agent for DualSudoku</strong>, a competitive variant of Sudoku, developed as part of the Artificial Intelligence course at Université Paris-Saclay. The project was realized in Java, with a strong focus on <strong>search algorithms</strong>, <strong>optimization</strong>, and <strong>game strategy design</strong>.<br><br>
+          I developed a custom combination of <strong>heuristic search</strong> and <strong>dynamic evaluation of game states</strong>, allowing the agent to adapt its strategy in real time based on both the current grid state and the opponent’s moves.<br><br>
+          The AI achieved excellent results and won the final competition of the course, outperforming all other agents submitted by the class. You can explore the complete implementation and source code on my <a href="https://github.com/baptistepras/AI_DualSudoku" target="_blank" aria-label="Navigate to DualSudoku AI project on GitHub">GitHub</a>.
+        </p>
+        </div>
+
+        <div class="image-row">
+          <div class="image-column">
+            <img src="static/dualsudoku.png" alt="DualSudoku Grid">
+          </div>
+          <div class="image-column">
+              <img src="static/alphabeta.jpg" alt="Alpha-Beta">
+          </div>
+        </div>
+      </div>
+      
+      <div class="content-box" id="perceptron">
+        <div class="content-para">
+        <p><strong><u>Spherical Teacher-Student Perceptron:</u></strong><br>
+          Implementation from scratch of a Spherical Teacher-Student Perceptron, using Python and Numpy (and a bit of Scikit-Learn), and using MatPlotLib for graphics. This project was carried out as part of a research internship at the LISN, supervised by François LANDES. It focuses on studying class imbalance in classification tasks using a spherical Teacher-Student Model. This approach helps analyze how imbalanced training data affects the performance in classification models. You can explore the complete implementation and source code on my <a href="https://github.com/baptistepras/spherical-teacher-student-model/tree/main" target="_blank" aria-label="Navigate to Spherical Teacher-Student Model project on GitHub">GitHub</a>.
+        </p>
+        </div>
+
+        <div class="image-row">
+          <div class="image-column">
+            <img src="static/TRAIN_N10000_D1250_b-1.0_n0.0_hinge_langevin.jpg" alt="Langevin">
+          </div>
+          <div class="image-column">
+            <img src="static/TRAIN_N10000_D1250_b-1.0_n0.0_hinge_gradient.jpg" alt="Gradient">
+          </div>
+        </div>
+      </div>
+
+      <div class="content-box" id="classification">
+        <div class="content-para">
+        <p><strong><u>Traffic Sign Recognition using Machine Learning:</u></strong><br>
+          I developed a machine learning model to accurately recognize specific traffic signs through supervised learning algorithms. The project involved extracting and pre-processing data from images, followed by training and evaluating multiple models to identify the most effective approach. Using libraries such as NumPy, Scikit-Learn, MatPlotLib, and Pandas, I efficiently managed data manipulation, model training, and visualization of results. The final model achieved a performance of over 95% accuracy. This project showcases my expertise in data preparation, model optimization, and practical applications of machine learning. You can explore the complete implementation and source code on my <a href="https://github.com/baptistepras/traffic_sign_recognition" target="_blank" aria-label="Navigate to traffic sign recognition project on GitHub">GitHub</a>.
+        </p>
+        </div>
+
+        <div class="image-row">
+          <div class="image-column">
+            <img src="static/recadrage.png" alt="Cropped Data">
+          </div>
+          <div class="image-column">
+            <img src="static/apprentissage.png" alt="Performance">
+          </div>
+        </div>
+      </div>
+
       <div class="content-box" id="kawa">
         <div class="content-para">
         <p><strong><u>Java-like Interpreter:</strong></u><br>
@@ -784,23 +855,6 @@ main {
         <div class="console-output" id="console">Console Output:</div>
       </div>
 
-      <div class="content-box" id="perceptron">
-        <div class="content-para">
-        <p><strong><u>Spherical Teacher-Student Model:</u></strong><br>
-          Implementation from scratch of a Spherical Teacher-Student Model, using Python and Numpy (and a bit of Scikit-Learn), and using MatPlotLib for graphics. This project was carried out as part of a research internship at the LISN, supervised by François LANDES. It focuses on studying class imbalance in classification tasks using a spherical Teacher-Student Model. This approach helps analyze how imbalanced training data affects the performance in classification models. You can explore the complete implementation and source code on my <a href="https://github.com/baptistepras/spherical-teacher-student-model/tree/main" target="_blank" aria-label="Navigate to Spherical Teacher-Student Model project on GitHub">GitHub</a>.
-        </p>
-        </div>
-
-        <div class="image-row">
-          <div class="image-column">
-            <img src="static/TRAIN_N10000_D1250_b-1.0_n0.0_hinge_langevin.jpg" alt="Langevin">
-          </div>
-          <div class="image-column">
-            <img src="static/TRAIN_N10000_D1250_b-1.0_n0.0_hinge_gradient.jpg" alt="Gradient">
-          </div>
-        </div>
-      </div>
-
       <div class="content-box" id="air-hockey">
         <div class="content-para">
         <p><strong><u>Air Hockey Game:</u></strong><br>
@@ -813,42 +867,6 @@ main {
             <source src="static/demoAirHockey.mp4" type="video/mp4">
             Votre navigateur ne supporte pas la lecture des vidéos HTML5.
           </video>
-        </div>
-      </div>
-
-      <div class="content-box" id="classification">
-        <div class="content-para">
-        <p><strong><u>Traffic Sign Recognition using Machine Learning:</u></strong><br>
-          I developed a machine learning model to accurately recognize specific traffic signs through supervised learning algorithms. The project involved extracting and pre-processing data from images, followed by training and evaluating multiple models to identify the most effective approach. Using libraries such as NumPy, Scikit-Learn, MatPlotLib, and Pandas, I efficiently managed data manipulation, model training, and visualization of results. The final model achieved a performance of over 95% accuracy. This project showcases my expertise in data preparation, model optimization, and practical applications of machine learning. You can explore the complete implementation and source code on my <a href="https://github.com/baptistepras/image_classification" target="_blank" aria-label="Navigate to image classification project on GitHub">GitHub</a>.
-        </p>
-        </div>
-
-        <div class="image-row">
-          <div class="image-column">
-            <img src="static/recadrage.png" alt="Cropped Data">
-          </div>
-          <div class="image-column">
-            <img src="static/apprentissage.png" alt="Performance">
-          </div>
-        </div>
-      </div>
-
-      <div class="content-box" id="dualsudoku">
-        <div class="content-para">
-        <p><strong><u>DualSudoku AI Agent:</u></strong><br>
-          Design and implementation of an <strong>AI agent for DualSudoku</strong>, a competitive variant of Sudoku, developed as part of the Artificial Intelligence course at Université Paris-Saclay. The project was realized in Java, with a strong focus on <strong>search algorithms</strong>, <strong>optimization</strong>, and <strong>game strategy design</strong>.<br><br>
-          I developed a custom combination of <strong>heuristic search</strong> and <strong>dynamic evaluation of game states</strong>, allowing the agent to adapt its strategy in real time based on both the current grid state and the opponent’s moves.<br><br>
-          The AI achieved excellent results and won the final competition of the course, outperforming all other agents submitted by the class. You can explore the complete implementation and source code on my <a href="https://github.com/baptistepras/AI_DualSudoku" target="_blank" aria-label="Navigate to DualSudoku AI project on GitHub">GitHub</a>.
-        </p>
-        </div>
-
-        <div class="image-row">
-          <div class="image-column">
-            <img src="static/dualsudoku.png" alt="DualSudoku Grid">
-          </div>
-          <div class="image-column">
-              <img src="static/alphabeta.jpg" alt="Alpha-Beta">
-          </div>
         </div>
       </div>
 
