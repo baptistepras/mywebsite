@@ -622,19 +622,21 @@
     <nav>
       <a data-target="home" aria-label="Navigate to home section">Home</a>
       <a data-target="education" aria-label="Navigate to education section">Education</a>
+      <a data-target="conferences" aria-label="Navigate to papers and conferences section">Publications</a>
       <a data-target="experience" aria-label="Navigate to professional experience section">Professional Experience</a>
       <div class="projects-container" style="position: relative; display: inline-block;">
         <a data-target="projects" aria-label="Navigate to projects section" id="projects-link">Projects</a>
         <div class="submenu" id="projects-submenu" style="display: none; position: absolute; padding: 10px; border-radius: 6px;">
-          <a data-target="nbamvp" style="display: block; margin-bottom: 5px; text-decoration: none;">NBA MVP Prediction</a>
-          <a data-target="dualsudoku" style="display: block; text-decoration: none;">AI Agent Dual Sudoku</a>
+          <a data-target="tokam2D" style="display: block; margin-bottom: 5px; text-decoration: none;">Structure Detection</a>
+          <a data-target="nlp" style="display: block; margin-bottom: 5px; text-decoration: none;">Market Impact</a>
           <a data-target="perceptron" style="display: block; margin-bottom: 5px; text-decoration: none;">Spherical Teacher-Student Perceptron</a>
+          <a data-target="nbamvp" style="display: block; margin-bottom: 5px; text-decoration: none;">NBA MVP Prediction</a>
           <a data-target="classification" style="display: block; margin-bottom: 5px; text-decoration: none;">Traffic Sign Recognition</a>
+          <a data-target="dualsudoku" style="display: block; text-decoration: none;">AI Agent Dual Sudoku</a>
           <a data-target="kawa" style="display: block; margin-bottom: 5px; text-decoration: none;">Java-like Interpreter</a>
           <a data-target="air-hockey" style="display: block; margin-bottom: 5px; text-decoration: none;">Air Hockey Game</a>
         </div>
       </div>
-      <a data-target="conferences" aria-label="Navigate to papers and conferences section">Papers / Conferences</a>
       <a data-target="skills" aria-label="Navigate to skills section">Skills</a>
     </nav>
   </header>
@@ -663,9 +665,9 @@
           <div class="contact-item">
             <img class="icon" src="static/CV.png" alt="CV Icon" data-light="static/CV.png" data-dark="static/CV_dark.png">
             <p>
-              <a href="static/CV_ENG.pdf" target="_blank" aria-label="Open my CV in English">CV_English</a>
+              <a href="static/Baptiste-PRAS_Resume.pdf" target="_blank" aria-label="Open my CV in English">CV_English</a>
               <span style="margin-right: 10px;"></span>
-              <a href="static/CV_FR.pdf" target="_blank" aria-label="Open my CV in French">CV_French</a>
+              <!--<a href="static/CV_FR.pdf" target="_blank" aria-label="Open my CV in French">CV_French</a>-->
               <!--<span style="margin-right: 10px;"></span>
               <a href="static/Lettre_Motivation_FR.pdf" target="_blank" aria-label="Open my Cover Letter in French">Lettre de Motivation</a>-->
             </p>
@@ -702,13 +704,23 @@
 
     </section>
 
+    
+    <section class="section" id="conferences">
+      <h2>Publications</h2>
+      
+      <div class="content-item">
+        <p> • Revisiting Class Imbalance Ratios in Imbalanced Learning, Junior Conference on Data Science & Engineering, 2025 <a href="static/RevisitingOptimalClassRatiosinImbalancedLearning.pdf" target="_blank" aria-label="Open the paper Revisiting Class Imbalance Ratios in Imbalanced Learning">PDF</a> <a href="static/RevisitingOptimalClassRatiosInImbalancedLearning_JDSE2025.pptx" target="_blank" aria-label="Open the slides Revisiting Class Imbalance Ratios in Imbalanced Learning">Slides</a></p>
+        <p> • Fine-Grained Mention-Level Analysis of Biomedical Entity Linking Models, MedicalInformatics Europe, 2026 </p>
+      </div>
+    </section>
+
 
     <section class="section" id="experience">
       <h2>Professional Experience</h2>
 
       <div class="content-item">
         <img class="logo" src="static/LISN.png" alt="LISN Logo">
-        <p>During my <strong>second research internship</strong>, I worked on the <strong>evaluation and development of models</strong> for <strong>Biomedical Entity Linking (BEL)</strong>, a subfield of <strong>Natural Language Processing (NLP)</strong>. My work involved performing a <strong>comparative analysis of state-of-the-art models</strong> (including <strong>Transformer-based</strong> and <strong>contrastive learning approaches</strong>) and addressing the challenge of <strong>fair performance comparison</strong> across <strong>heterogeneous training environments</strong>. I conducted detailed evaluations on <strong>public benchmarks (BELB)</strong>, analyzing performance on <strong>zero-shot entities</strong>, <strong>homonyms</strong>, and other challenging cases. Additionally, I developed advanced <strong>Python</strong> scripts to automate model evaluation and I proposed new <strong>mention-level evaluation metrics</strong> based on linguistic and lexical features such as mention length, ambiguity, synonymy, and surface variation. These metrics provided new <strong>insights into model weaknesses</strong>. This work led to a research paper, which has been submitted to a venue in the ACL conference family.</p>
+        <p>During my <strong>second research internship</strong>, I worked on the <strong>evaluation and development of models</strong> for <strong>Biomedical Entity Linking (BEL)</strong>, a subfield of <strong>Natural Language Processing (NLP)</strong>. My work involved performing a <strong>comparative analysis of state-of-the-art models</strong> (including <strong>Transformer-based</strong> and <strong>contrastive learning approaches</strong>) and addressing the challenge of <strong>fair performance comparison</strong> across <strong>heterogeneous training environments</strong>. I conducted detailed evaluations on <strong>public benchmarks (BELB)</strong>, analyzing performance on <strong>zero-shot entities</strong>, <strong>homonyms</strong>, and other challenging cases. Additionally, I developed advanced <strong>Python</strong> scripts to automate model evaluation and I proposed new <strong>mention-level evaluation metrics</strong> based on linguistic and lexical features such as mention length, ambiguity, synonymy, and surface variation. These metrics provided new <strong>insights into model weaknesses</strong>. This work led to a research paper, which has been accepted to an international conference. Building on this foundational research, my subsequent work focused on the practical application of Biomedical Entity Linking (BEL) strategies, specifically for normalizing PICO entities (Population, Intervention, Comparison, Outcome) within the MeSH knowledge base. I developed and evaluated a hybrid normalization pipeline, conducting a comparative analysis between a custom heuristic-based approach and ArboEL, a state-of-the-art graph-based entity linking model. This allowed for a direct assessment of how specialized rule-based scripts perform against complex neural architectures in a clinical context.</p>
       </div>
       
       <div class="content-item">
@@ -727,42 +739,28 @@
     <section class="section" id="projects">
       <h2>Some of my projects</h2>
 
-      <div class="content-box" id="nbamvp">
+      <div class="content-box" id="tokam2D">
         <div class="content-para">
-        <p><strong><u>NBA MVP Prediction Model:</u></strong><br>
-           Developed a machine learning pipeline to predict the NBA Most Valuable Player (MVP) using player and team statistics collected from publicly available sources. The project involved data cleaning and structuring, followed by feature engineering and attribute selection to optimize predictive performance. Several models were implemented and compared with Scikit-Learn, and the best configuration achieved over 80% accuracy in reproducing the actual MVP outcome. You can explore the complete implementation and source code on my <a href="https://github.com/baptistepras/nba_mvp_prediction" target="_blank" aria-label="Navigate to NBA MVP Prediction Model project on GitHub">GitHub</a>.
+        <p><strong><u>Structure Detection in Fusion Plasma Simulations:</u></strong><br>
+          Developed a multi-stage detection pipeline featuring a YOLOv8 architecture optimized with a custom MLP post-filter for low-contrast frames, incorporating a pseudo-labeling strategy to expand a limited 30-image dataset and a feature extractor targeting intensity statistics and Sobel gradients. You can explore the complete implementation and source code on my <a href="https://github.com/baptistepras/Structure-detection-in-fusion-plasma-simulations" target="_blank" aria-label="Navigate to Structure Detection in Fusion Plasma Simulations project on GitHub">GitHub</a>.
         </p>
         </div>
 
         <div class="image-row">
           <div class="image-column">
-            <img src="static/loghyper.png" alt="Hyperparameters">
-          </div>
-          <div class="image-column">
-              <img src="static/nbamvp.jpeg" alt="mvp">
+            <img src="static/yolo_train_mosaic.jpg" alt="mosaic">
           </div>
         </div>
       </div>
 
-      <div class="content-box" id="dualsudoku">
+      <div class="content-box" id="nlp">
         <div class="content-para">
-        <p><strong><u>DualSudoku AI Agent:</u></strong><br>
-          Design and implementation of an <strong>AI agent for DualSudoku</strong>, a competitive variant of Sudoku, developed as part of the Artificial Intelligence course at Université Paris-Saclay. The project was realized in Java, with a strong focus on <strong>search algorithms</strong>, <strong>optimization</strong>, and <strong>game strategy design</strong>.<br><br>
-          I developed a custom combination of <strong>heuristic search</strong> and <strong>dynamic evaluation of game states</strong>, allowing the agent to adapt its strategy in real time based on both the current grid state and the opponent’s moves.<br><br>
-          The AI achieved excellent results and won the final competition of the course, outperforming all other agents submitted by the class. You can explore the complete implementation and source code on my <a href="https://github.com/baptistepras/AI_DualSudoku" target="_blank" aria-label="Navigate to DualSudoku AI project on GitHub">GitHub</a>.
+        <p><strong><u>Measuring Market Impact of Financial News:</u></strong><br>
+          Engineered a computationally efficient framework to transform unstructured financial news into (date, ticker, impact summary) event representations by implementing a hierarchical Map-Reduce summarization architecture with compact Transformers, ensuring numerical fidelity and entity grounding while validating results through a finance-oriented LLM-as-a-judge audit. You can explore the complete implementation and source code on my <a href="https://github.com/baptistepras/financial-news-impact-prediction" target="_blank" aria-label="Navigate to Measuring Market Impact of Financial News project on GitHub">GitHub</a>.
         </p>
         </div>
-
-        <div class="image-row">
-          <div class="image-column">
-            <img src="static/dualsudoku.png" alt="DualSudoku Grid">
-          </div>
-          <div class="image-column">
-              <img src="static/alphabeta.jpg" alt="Alpha-Beta">
-          </div>
-        </div>
       </div>
-      
+
       <div class="content-box" id="perceptron">
         <div class="content-para">
         <p><strong><u>Spherical Teacher-Student Perceptron:</u></strong><br>
@@ -778,6 +776,23 @@
             <img src="static/TRAIN_N10000_D1250_b-1.0_n0.0_hinge_gradient.jpg" alt="Gradient">
           </div>
         </div>
+      </div>
+      
+      <div class="content-box" id="nbamvp">
+        <div class="content-para">
+        <p><strong><u>NBA MVP Prediction Model:</u></strong><br>
+           Developed a machine learning pipeline to predict the NBA Most Valuable Player (MVP) using player and team statistics collected from publicly available sources. The project involved data cleaning and structuring, followed by feature engineering and attribute selection to optimize predictive performance. Several models were implemented and compared with Scikit-Learn, and the best configuration achieved over 80% accuracy in reproducing the actual MVP outcome. You can explore the complete implementation and source code on my <a href="https://github.com/baptistepras/nba_mvp_prediction" target="_blank" aria-label="Navigate to NBA MVP Prediction Model project on GitHub">GitHub</a>.
+        </p>
+        </div>
+        
+        <!--<div class="image-row">
+          <div class="image-column">
+            <img src="static/loghyper.png" alt="Hyperparameters">
+          </div>
+          <div class="image-column">
+              <img src="static/nbamvp.jpeg" alt="mvp">
+          </div>
+        </div>-->
       </div>
 
       <div class="content-box" id="classification">
@@ -795,6 +810,25 @@
             <img src="static/apprentissage.png" alt="Performance">
           </div>
         </div>
+      </div>
+
+      <div class="content-box" id="dualsudoku">
+        <div class="content-para">
+        <p><strong><u>DualSudoku AI Agent:</u></strong><br>
+          Design and implementation of an <strong>AI agent for DualSudoku</strong>, a competitive variant of Sudoku, developed as part of the Artificial Intelligence course at Université Paris-Saclay. The project was realized in Java, with a strong focus on <strong>search algorithms</strong>, <strong>optimization</strong>, and <strong>game strategy design</strong>.<br><br>
+          I developed a custom combination of <strong>heuristic search</strong> and <strong>dynamic evaluation of game states</strong>, allowing the agent to adapt its strategy in real time based on both the current grid state and the opponent’s moves.<br><br>
+          The AI achieved excellent results and won the final competition of the course, outperforming all other agents submitted by the class. You can explore the complete implementation and source code on my <a href="https://github.com/baptistepras/AI_DualSudoku" target="_blank" aria-label="Navigate to DualSudoku AI project on GitHub">GitHub</a>.
+        </p>
+        </div>
+
+        <!--<div class="image-row">
+          <div class="image-column">
+            <img src="static/dualsudoku.png" alt="DualSudoku Grid">
+          </div>
+          <div class="image-column">
+              <img src="static/alphabeta.jpg" alt="Alpha-Beta">
+          </div>
+        </div>-->
       </div>
 
       <div class="content-box" id="kawa">
@@ -881,15 +915,7 @@ main {
     
     </section>
 
-    <section class="section" id="conferences">
-      <h2>Papers / Conferences</h2>
-      
-      <div class="content-item">
-        <p> • Revisiting Class Imbalance Ratios in Imbalanced Learning, JDSE 2025 <a href="static/RevisitingOptimalClassRatiosinImbalancedLearning.pdf" target="_blank" aria-label="Open the paper Revisiting Class Imbalance Ratios in Imbalanced Learning">PDF</a> <a href="static/RevisitingOptimalClassRatiosInImbalancedLearning_JDSE2025.pptx" target="_blank" aria-label="Open the slides Revisiting Class Imbalance Ratios in Imbalanced Learning">Slides</a></p>
-      </div>
-    </section>
-
-
+    
     <section class="section" id="skills">
       <h2>Skills</h2>
 
@@ -899,29 +925,37 @@ main {
         <div style="flex: 1; min-width: 200px; margin: 9px;">
           <h3>Programming Languages</h3>
           <ul>
-            <li><img src="static/python.png" alt="Python" style="width: 30px; vertical-align: middle; margin-right: 10px;">Python (Advanced)</li>
-            <li><img src="static/c++.png" alt="C++" style="width: 30px; vertical-align: middle; margin-right: 10px;">C++/C (Advanced)</li>
-            <li><img src="static/java.png" alt="Java" style="width: 30px; vertical-align: middle; margin-right: 10px;">Java (Intermediate)</li>
-            <li><img src="static/ocaml.webp" alt="OCaml" style="width: 30px; vertical-align: middle; margin-right: 10px;">OCaml (Intermediate)</li>
-            <li><img src="static/sql.png" alt="SQL" style="width: 30px; vertical-align: middle; margin-right: 10px;">SQL (Intermediate)</li>
+            <li><img src="static/python.png" alt="Python" style="width: 30px; vertical-align: middle; margin-right: 10px;">Python</li>
+            <li><img src="static/c++.png" alt="C++" style="width: 30px; vertical-align: middle; margin-right: 10px;">C++/C</li>
+            <li><img src="static/java.png" alt="Java" style="width: 30px; vertical-align: middle; margin-right: 10px;">Java</li>
+            <li><img src="static/ocaml.webp" alt="OCaml" style="width: 30px; vertical-align: middle; margin-right: 10px;">OCaml</li>
+            <li><img src="static/sql.png" alt="SQL" style="width: 30px; vertical-align: middle; margin-right: 10px;">SQL</li>
           </ul>
         </div>
     
         <div style="flex: 1; min-width: 200px; margin: 9px;">
-          <h3>Machine Learning</h3>
+          <h3>Artificial Intelligence</h3>
           <ul>
+            <li><img src="static/NLP.png" alt="NLP" style="width: 30px; vertical-align: middle; margin-right: 10px;">Natural Language Processing</li>
+            <li><img src="static/computervision.png" alt="ComputerVision" style="width: 30px; vertical-align: middle; margin-right: 10px;">Computer Vision</li>
+            <li><img src="static/pytorch.png" alt="PyTorch" style="width: 30px; vertical-align: middle; margin-right: 10px;">PyTorch</li>
             <li><img src="static/scikit-learn.png" alt="Scikit-learn" style="width: 30px; vertical-align: middle; margin-right: 10px;">Scikit-Learn</li>
             <li><img src="static/numpy.png" alt="NumPy" style="width: 30px; vertical-align: middle; margin-right: 10px;">NumPy</li>
             <li><img src="static/pandas.png" alt="Pandas" style="width: 30px; vertical-align: middle; margin-right: 10px;">Pandas</li>
-            <li><img src="static/matplotlib.png" alt="MatPlotLib" style="width: 30px; vertical-align: middle; margin-right: 10px;">MatPlotLib</li>
+            <!--<li><img src="static/matplotlib.png" alt="MatPlotLib" style="width: 30px; vertical-align: middle; margin-right: 10px;">MatPlotLib</li>-->
           </ul>
         </div>
     
         <div style="flex: 1; min-width: 200px; margin: 9px;">
-          <h3>Web Development</h3>
+          <h3>Tools</h3>
           <ul>
+            <li><img src="static/latex.png" alt="LaTeX" style="width: 30px; vertical-align: middle; margin-right: 10px;">LaTeX</li>
+            <li><img src="static/git.png" alt="Git" style="width: 30px; vertical-align: middle; margin-right: 10px;">Git</li>
+            <li><img src="static/linux.png" alt="Linux" style="width: 30px; vertical-align: middle; margin-right: 10px;">Linux</li>
+            <li><img src="static/slurm.png" alt="Slurm" style="width: 30px; vertical-align: middle; margin-right: 10px;">Slurm (Cluster Computing)</li>
+            <li><img src="static/m365.png" alt="Microsoft 365" style="width: 30px; vertical-align: middle; margin-right: 10px;">Microsoft Office Suite</li>
             <li><img src="static/html.png" alt="HTML" style="width: 30px; vertical-align: middle; margin-right: 10px;">HTML</li>
-            <li><img src="static/css.png" alt="CSS" style="width: 30px; vertical-align: middle; margin-right: 10px;">CSS</li>
+            <!--<li><img src="static/css.png" alt="CSS" style="width: 30px; vertical-align: middle; margin-right: 10px;">CSS</li>-->
           </ul>
         </div>
     
@@ -929,12 +963,12 @@ main {
           <h3>Languages</h3>
           <ul>
             <li><img src="static/french.png" alt="french" style="width: 30px; vertical-align: middle; margin-right: 10px;">Native</li>
-            <li><img src="static/english.webp" alt="english" style="width: 30px; vertical-align: middle; margin-right: 10px;">Fluent (C2) - TOEFL: 108/120</li>
-            <li><img src="static/russian.png" alt="russian" style="width: 30px; vertical-align: middle; margin-right: 10px;">Basic Knowledge (A1-A2)</li>
+            <li><img src="static/english.webp" alt="english" style="width: 30px; vertical-align: middle; margin-right: 10px;">Bilingual Proficiency - TOEFL: 108/120 - TOEIC: 990/990</li>
+            <li><img src="static/russian.png" alt="russian" style="width: 30px; vertical-align: middle; margin-right: 10px;">Conversational</li>
           </ul>
         </div>
     
-        <div style="flex: 1; min-width: 200px; margin: 9px;">
+        <!--<div style="flex: 1; min-width: 200px; margin: 9px;">
           <h3>Soft Skills</h3>
           <ul>
             <li>Teamwork</li>
@@ -942,7 +976,7 @@ main {
             <li>Work Ethic</li>
             <li>Problem-Solving</li>
           </ul>
-        </div>
+        </div>-->
 
       </div>
       </div>
@@ -955,7 +989,7 @@ main {
   <footer>
     <div class="footer-container">
     <div style="max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 20px;">
-        <p style="margin: 0;">Designed by me, powered by 
+        <p style="margin: 0;">Powered by 
           <a href="https://github.com" target="_blank">GitHub</a>
         </p>
     </div>
