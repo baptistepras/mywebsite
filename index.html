@@ -1110,20 +1110,20 @@ main {
 
 <div id="chatbox" class="chatbox hidden" role="dialog" aria-live="polite" aria-labelledby="chatbox-title" aria-label="Chat assistant">
   <div class="chat-title" id="chatbox-title">Ask me anything!</div>
-    <p class="chat-subtitle">
+  <p class="chat-subtitle">
     This is an experimental assistant.<br>
     You can ask questions <strong>about me</strong> (education, projects, jobs...) in English only.<br>
     If something is wrong or missing, please let me know below!
-    </p>
-    <input id="chat-question" type="text" placeholder="Type your question..." class="chat-input" />
+  </p>
+  <input id="chat-question" type="text" placeholder="Type your question..." class="chat-input" />
   <div id="chat-answer" class="chat-answer"></div>
   <button id="chat-flag" class="chat-flag hidden">⚠️ This answer is wrong</button>
   <button id="chat-show-questions" class="chat-button" aria-expanded="false" aria-controls="chat-answer">📝 See all questions</button>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.6.2/dist/fuse.min.js"></script>
-  
-<script src="qa.js?v=1.0.5"> // Changer le nom du fichier quand on modifie le fichier </script>
+
+<script src="qa.js?v=2.0.0"></script>
 <script>
   const toggleChat = document.getElementById("toggle-chat");
   const chatbox = document.getElementById("chatbox");
@@ -1132,57 +1132,57 @@ main {
   const chatFlag = document.getElementById("chat-flag");
   const chatShowQuestions = document.getElementById("chat-show-questions");
 
+  // Search both questions and answers for better matching on rephrased queries
   const fuse = new Fuse(
     qaData.map(obj => ({ ...obj, question: obj.question.toLowerCase() })),
     {
-      keys: ["question"],
-      threshold: 0.4
+      keys: [
+        { name: "question", weight: 0.7 },
+        { name: "answer", weight: 0.3 }
+      ],
+      threshold: 0.35
     }
   );
 
   let showingQuestions = false;
 
-  // Toggle chat visibility
   toggleChat.addEventListener("click", () => {
     chatbox.classList.toggle("hidden");
     chatInput.focus();
   });
 
-  // Handle user question
   chatInput.addEventListener("keypress", (e) => {
-    if (e.key === "Enter") {
-      const query = chatInput.value.trim();
+    if (e.key !== "Enter") return;
 
-      if (query.length < 5) {
-        chatAnswer.textContent = "❌ Please ask a more complete question (minimum 5 characters).";
-        chatAnswer.style.whiteSpace = "pre-line";
-        chatFlag.classList.remove("hidden");
-        chatFlag.dataset.question = query;
-        chatFlag.dataset.answer = "(Too short to process)";
-        return;
-      }
+    const query = chatInput.value.trim();
 
-      const result = fuse.search(query.toLowerCase());
-
-      if (result.length > 0) {
-        const matchedAnswer = result[0].item.answer;
-        chatAnswer.textContent = matchedAnswer;
-        chatAnswer.style.whiteSpace = "normal";
-        chatFlag.classList.remove("hidden");
-        chatFlag.dataset.question = query;
-        chatFlag.dataset.answer = matchedAnswer;
-        showingQuestions = false;
-        chatShowQuestions.textContent = "📝 See all questions";
-      } else {
-        chatAnswer.textContent = "❌ Sorry, I did not understand this question.";
-        chatAnswer.style.whiteSpace = "pre-line";
-        chatFlag.classList.remove("hidden");
-        chatFlag.dataset.question = query;
-        chatFlag.dataset.answer = "(No answer found)";
-        showingQuestions = false;
-        chatShowQuestions.textContent = "📝 See all questions";
-      }
+    if (query.length < 5) {
+      chatAnswer.textContent = "❌ Please ask a more complete question (minimum 5 characters).";
+      chatAnswer.style.whiteSpace = "pre-line";
+      chatFlag.classList.remove("hidden");
+      chatFlag.dataset.question = query;
+      chatFlag.dataset.answer = "(Too short to process)";
+      return;
     }
+
+    const result = fuse.search(query.toLowerCase());
+    showingQuestions = false;
+    chatShowQuestions.textContent = "📝 See all questions";
+    chatShowQuestions.setAttribute("aria-expanded", "false");
+
+    if (result.length > 0) {
+      const matchedAnswer = result[0].item.answer;
+      chatAnswer.textContent = matchedAnswer;
+      chatAnswer.style.whiteSpace = "normal";
+      chatFlag.dataset.answer = matchedAnswer;
+    } else {
+      chatAnswer.textContent = "❌ Sorry, I did not understand this question.";
+      chatAnswer.style.whiteSpace = "pre-line";
+      chatFlag.dataset.answer = "(No answer found)";
+    }
+
+    chatFlag.classList.remove("hidden");
+    chatFlag.dataset.question = query;
   });
 
   // Send feedback to Formspree
@@ -1192,27 +1192,19 @@ main {
 
     fetch("https://formspree.io/f/mrbarvev", {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-        question: q,
-        answer: a,
-        source: "chatbot-feedback"
-      })
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ question: q, answer: a, source: "chatbot-feedback" })
     })
     .then(response => {
       if (response.ok) {
-        alert("⚠️ Thanks for your feedback! We’ll use it to improve the assistant.");
+        alert("⚠️ Thanks for your feedback! We'll use it to improve the assistant.");
       } else if (response.status === 402) {
         alert("⚠️ Feedback limit reached this month. Try again later!");
       } else {
         alert("❌ Failed to send feedback. Please try again later.");
       }
     })
-    .catch(() => {
-      alert("❌ Failed to send feedback. Please check your connection.");
-    });
+    .catch(() => alert("❌ Failed to send feedback. Please check your connection."));
   });
 
   // Show/hide all questions
@@ -1239,18 +1231,15 @@ main {
 
         li.addEventListener("click", () => {
           chatInput.value = q.question;
-          const event = new KeyboardEvent("keypress", { key: "Enter" });
-          chatInput.dispatchEvent(event);
+          chatInput.dispatchEvent(new KeyboardEvent("keypress", { key: "Enter" }));
         });
 
         ul.appendChild(li);
       });
 
       scrollContainer.appendChild(ul);
-
       chatAnswer.innerHTML = "<strong>Here are the available questions:</strong>";
       chatAnswer.appendChild(scrollContainer);
-
       chatAnswer.style.whiteSpace = "normal";
       chatFlag.classList.add("hidden");
       chatShowQuestions.textContent = "🔽 Hide questions";
@@ -1267,7 +1256,7 @@ main {
   // Close chatbox when clicking outside
   document.addEventListener("click", (e) => {
     const isClickInside = chatbox.contains(e.target) || toggleChat.contains(e.target);
-    if (!isClickInside) {
+    if (!isClickInside && !chatbox.classList.contains("hidden")) {
       chatbox.classList.add("hidden");
     }
   });
