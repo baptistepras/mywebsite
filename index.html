@@ -611,6 +611,42 @@
         color: #3498DB;
         text-decoration: underline;
       }
+
+  /* Style du bandeau d'annonce */
+  .cv-tool-banner {
+    background-color: var(--accent);
+    color: var(--accent-fg);
+    padding: 12px 20px;
+    border-bottom: 1.5px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    font-family: var(--sans);
+    font-weight: 600;
+    text-align: center;
+    box-shadow: var(--shadow);
+  }
+
+  .cv-tool-banner a.cv-tool-button {
+    background-color: var(--accent-fg);
+    color: var(--accent);
+    padding: 6px 14px;
+    border-radius: var(--radius);
+    text-decoration: none;
+    font-size: 0.85rem;
+    transition: opacity 0.2s, transform 0.2s;
+    display: inline-block;
+  }
+
+  .cv-tool-banner a.cv-tool-button:hover {
+    opacity: 0.9;
+    transform: scale(1.05);
+  }
+
+  [data-theme="dark"] .cv-tool-banner {
+    border-bottom-color: var(--border2);
+  }
   </style>
 </head>
 
@@ -642,6 +678,13 @@
   </header>
 
   <div class="content">
+
+    <div class="cv-tool-banner">
+      <span>✨ Create your own CV using my free tool</span>
+      <a href="https://baptistepras.github.io/cv-generator/" target="_blank" style="color: var(--accent-fg); font-weight: 800; font-size: 1.1rem; text-decoration: underline; margin-left: 10px;">
+          TRY IT HERE !
+      </a>
+    </div>
 
     <section class="section" id="home">
     <div class="intro">
