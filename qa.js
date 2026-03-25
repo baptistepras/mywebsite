@@ -16,7 +16,7 @@ const qaData = [
     answer: "I investigated Biomedical Entity Linking strategies to normalize PICO entities (Population, Intervention, Comparison, Outcome) to the MeSH knowledge base at LISN. I developed and evaluated a hybrid normalization pipeline, comparing a custom rule-based heuristic script with ArboEL, a state-of-the-art graph-based entity linking model."
   },
   {
-    question: "What did you do during your TER?",
+    question: "What did you do during your supervised research project on Class Imbalance?",
     answer: "I studied the impact of class imbalance on classification tasks using a spherical Teacher-Student perceptron at LISN. I conducted experiments in Python with Scikit-Learn, NumPy, and Matplotlib, testing different noise levels, loss functions, and training methods including gradient descent and Langevin dynamics. I demonstrated that the optimal imbalance ratio in training sets differs from 0.5 in class-imbalanced problems. This work was published at JDSE 2025."
   },
   {
