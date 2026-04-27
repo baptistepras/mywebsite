@@ -665,6 +665,8 @@
         <div class="submenu" id="projects-submenu" style="display: none; position: absolute; padding: 10px; border-radius: 6px;">
           <a data-target="tokam2D" style="display: block; margin-bottom: 5px; text-decoration: none;">Structure Detection</a>
           <a data-target="nlp" style="display: block; margin-bottom: 5px; text-decoration: none;">Market Impact</a>
+          <a data-target="cyclegan" style="display: block; margin-bottom: 5px; text-decoration: none;">CycleGAN</a>
+          <a data-target="info-retrieval" style="display: block; margin-bottom: 5px; text-decoration: none;">Scientific Retrieval</a>
           <a data-target="perceptron" style="display: block; margin-bottom: 5px; text-decoration: none;">Spherical Teacher-Student Perceptron</a>
           <a data-target="nbamvp" style="display: block; margin-bottom: 5px; text-decoration: none;">NBA MVP Prediction</a>
           <a data-target="classification" style="display: block; margin-bottom: 5px; text-decoration: none;">Traffic Sign Recognition</a>
@@ -691,7 +693,7 @@
       <div class="intro-text">
 
         <h2>Baptiste Pras</h2>
-        <p>I am a Master's student in Artificial Intelligence at University Paris-Saclay. I aim to further my studies in these fields, with the ultimate goal of pursuing a PhD in Natural Language Processing, Machine Learning or Computer Vision.</p>
+        <p>I am a Master's student in Artificial Intelligence at University Paris-Saclay. I am currently doing my M1 internship at the LISN about Few Shot Learning and Multi-Plant Agnostic Counting.</p>
 
         <div class="contact-container">
 
@@ -806,10 +808,31 @@
         </div>
       </div>
 
+      <div class="content-box" id="cyclegan">
+        <div class="content-para">
+        <p><strong><u>Unpaired Image-to-Image Translation (CycleGAN):</u></strong><br>
+          Re-implemented the CycleGAN architecture entirely in <strong>pure NumPy</strong>, without using any autograd library like PyTorch or TensorFlow. This project involved hand-coding the forward and backward passes for ResNet generators and PatchGAN discriminators, as well as the cycle consistency and identity losses. Despite the CPU constraints, the model successfully demonstrated the cycle consistency effect on the horse2zebra dataset. You can explore the complete implementation and source code on my: <a href="https://github.com/baptistepras/CycleGAN" target="_blank" aria-label="Navigate to CycleGAN project on GitHub">GitHub</a>.
+        </p>
+        </div>
+        <div class="image-row">
+          <div class="image-column">
+            <img src="static/cyclegan_results.png" alt="CycleGAN horse to zebra results" style="max-width: 80%; border-radius: 8px;">
+          </div>
+        </div>
+      </div>
+      
+      <div class="content-box" id="info-retrieval">
+        <div class="content-para">
+        <p><strong><u>Scientific Article Information Retrieval:</u></strong><br>
+          Developed a progressive pipeline for scientific citation prediction on a corpus of 20,000 papers. Starting from sparse (BM25) and dense (BGE-large) baselines, reached a <strong>MAP of 0.67</strong> by implementing a <strong>Learning to Rank (XGBRanker)</strong> model. The final system effectively fuses semantic embeddings, lexical signals, and citation context features mined from full-text data. You can explore the complete implementation and source code on my: <a href="https://github.com/baptistepras/Scientific-Article-Information-Retrieval" target="_blank" aria-label="Navigate to Scientific Article Retrieval project on GitHub">GitHub</a>.
+        </p>
+        </div>
+      </div>
+      
       <div class="content-box" id="perceptron">
         <div class="content-para">
         <p><strong><u>Spherical Teacher-Student Perceptron:</u></strong><br>
-          Implementation from scratch of a Spherical Teacher-Student Perceptron, using Python and Numpy (and a bit of Scikit-Learn), and using MatPlotLib for graphics. This project was carried out as part of a research internship at the LISN, supervised by François LANDES. It focuses on studying class imbalance in classification tasks using a spherical Teacher-Student Model. This approach helps analyze how imbalanced training data affects the performance in classification models. You can explore the complete implementation and source code on my <a href="https://github.com/baptistepras/spherical-teacher-student-model/tree/main" target="_blank" aria-label="Navigate to Spherical Teacher-Student Model project on GitHub">GitHub</a>.
+          Implementation from scratch of a Spherical Teacher-Student Perceptron, using Python and Numpy (and a bit of Scikit-Learn), and using MatPlotLib for graphics. It focuses on studying class imbalance in classification tasks using a spherical Teacher-Student Model. This approach helps analyze how imbalanced training data affects the performance in classification models. You can explore the complete implementation and source code on my <a href="https://github.com/baptistepras/spherical-teacher-student-model/tree/main" target="_blank" aria-label="Navigate to Spherical Teacher-Student Model project on GitHub">GitHub</a>.
         </p>
         </div>
 
@@ -843,7 +866,7 @@
       <div class="content-box" id="classification">
         <div class="content-para">
         <p><strong><u>Traffic Sign Recognition using Machine Learning:</u></strong><br>
-          I developed a machine learning model to accurately recognize specific traffic signs through supervised learning algorithms. The project involved extracting and pre-processing data from images, followed by training and evaluating multiple models to identify the most effective approach. Using libraries such as NumPy, Scikit-Learn, MatPlotLib, and Pandas, I efficiently managed data manipulation, model training, and visualization of results. The final model achieved a performance of over 95% accuracy. This project showcases my expertise in data preparation, model optimization, and practical applications of machine learning. You can explore the complete implementation and source code on my <a href="https://github.com/baptistepras/traffic_sign_recognition" target="_blank" aria-label="Navigate to traffic sign recognition project on GitHub">GitHub</a>.
+          Developed a machine learning model to accurately recognize specific traffic signs through supervised learning algorithms. The project involved extracting and pre-processing data from images, followed by training and evaluating multiple models to identify the most effective approach. Using libraries such as NumPy, Scikit-Learn, MatPlotLib, and Pandas, I efficiently managed data manipulation, model training, and visualization of results. The final model achieved a performance of over 95% accuracy. This project showcases my expertise in data preparation, model optimization, and practical applications of machine learning. You can explore the complete implementation and source code on my <a href="https://github.com/baptistepras/traffic_sign_recognition" target="_blank" aria-label="Navigate to traffic sign recognition project on GitHub">GitHub</a>.
         </p>
         </div>
 
