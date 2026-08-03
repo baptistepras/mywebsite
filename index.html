@@ -324,6 +324,7 @@
 
       /* Mode clair */
       .intro {
+        position: relative;
         background: linear-gradient(to right, #FBF5E7, #EDE7D1);
         padding: 20px 20px 20px;
         border-radius: 10px;
@@ -348,18 +349,20 @@
         box-shadow: 0 6px 12px rgba(0, 0, 0, 0.6);
       }
 
+
     /* Photo de profil */
 
       /* Mode clair */
       .profile-pic {
-        width: 150px;           /* Réduction de la taille de 200px à 150px */
+        width: 150px;
         height: 150px;
         border-radius: 50%;
         border: 5px solid #D9CBB5;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        position: static;       /* Retire le positionnement absolu problématique */
-        margin: 0 0 0 20px;     /* Ajoute une simple marge à gauche */
-        flex-shrink: 0;         /* Empêche la photo de se déformer */
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        margin: 0;
         object-fit: cover;
       }
 
@@ -367,7 +370,7 @@
       body.dark-mode .profile-pic {
         border: 5px solid #f5f5f5;
       }
-
+    
 
     /* Contact */
 
