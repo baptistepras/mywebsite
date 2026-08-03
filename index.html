@@ -348,19 +348,18 @@
         box-shadow: 0 6px 12px rgba(0, 0, 0, 0.6);
       }
 
-
     /* Photo de profil */
 
       /* Mode clair */
       .profile-pic {
-        width: 200px;
-        height: 200px;
+        width: 150px;           /* Réduction de la taille de 200px à 150px */
+        height: 150px;
         border-radius: 50%;
         border: 5px solid #D9CBB5;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        margin-left: 485px;
-        margin-top: -105px;
-        position: absolute;
+        position: static;       /* Retire le positionnement absolu problématique */
+        margin: 0 0 0 20px;     /* Ajoute une simple marge à gauche */
+        flex-shrink: 0;         /* Empêche la photo de se déformer */
         object-fit: cover;
       }
 
@@ -766,8 +765,8 @@
       <h2>Professional Experience</h2>
 
       <div class="content-item">
-        <img class="logo" src="static/LISN.png" alt="LISN Logo">
-        <p>I am currently completing my <strong>third research internship</strong> focused on <strong>Few-Shot Learning</strong> and <strong>Multi-Plant Agnostic Counting</strong>. My work involves developing robust computer vision methods capable of counting various plant species with minimal supervision, exploring <strong>agnostic counting</strong> architectures to improve generalization across different botanical datasets.</p>
+        <img class="logo" src="static/INRIA.png" alt="LISN Logo">
+        <p>During my <strong>third research internship</strong>, I focused on <strong>automated per-species counting of wheat and pea</strong> in intercropped micro-plots. I benchmarked class-agnostic few-shot counters and dense crowd-counting models across georeferenced drone orthomosaics and close-range phone imagery. My work involved designing preprocessing pipelines to suppress soil noise, constructing isotropic square image representations, establishing a fixed exemplar pool, and transitioning from whole-plant to fine-grained <strong>wheat-tip counting</strong>. By evaluating different image input strategies, the best configurations achieved a <strong>per-species MAPE of 8–12% on wheat tips</strong>, demonstrating that simple whole-image resizing outperforms patch-based tiling while making tip counting intrinsically more accurate than whole-plant estimation.</p>
       </div>
 
       <div class="content-item">
