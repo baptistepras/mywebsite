@@ -664,6 +664,7 @@
         <a data-target="projects" aria-label="Navigate to projects section" id="projects-link">Projects</a>
         <div class="submenu" id="projects-submenu" style="display: none; position: absolute; padding: 10px; border-radius: 6px;">
           <a data-target="tokam2D" style="display: block; margin-bottom: 5px; text-decoration: none;">Structure Detection</a>
+          <a data-target="intercrop-counting" style="display: block; margin-bottom: 5px; text-decoration: none;">Intercrop Plant Counting</a>
           <a data-target="nlp" style="display: block; margin-bottom: 5px; text-decoration: none;">Market Impact</a>
           <a data-target="cyclegan" style="display: block; margin-bottom: 5px; text-decoration: none;">CycleGAN</a>
           <a data-target="info-retrieval" style="display: block; margin-bottom: 5px; text-decoration: none;">Scientific Retrieval</a>
@@ -682,9 +683,13 @@
   <div class="content">
 
     <div class="cv-tool-banner">
-      <span>✨ Create your own CV using my free tool</span>
-      <a href="https://baptistepras.github.io/cv-generator/" target="_blank" style="color: var(--accent-fg); font-weight: 800; font-size: 1.1rem; text-decoration: underline; margin-left: 10px;">
-          TRY IT HERE !
+      <span>✨ Try my interactive projects:</span>
+      <a href="https://baptistepras.github.io/cv-generator/" target="_blank" class="cv-tool-button" style="color: var(--accent-fg); font-weight: 800; text-decoration: underline; margin-left: 10px;">
+        CV Generator
+      </a>
+      <span style="opacity: 0.6;">|</span>
+      <a href="https://linguaguess.pages.dev/" target="_blank" class="cv-tool-button" style="color: var(--accent-fg); font-weight: 800; text-decoration: underline;">
+        🎮 Play LinguaGuess
       </a>
     </div>
 
@@ -800,6 +805,20 @@
         <div class="image-row">
           <div class="image-column">
             <img src="static/yolo_train_mosaic.png" alt="mosaic">
+          </div>
+        </div>
+      </div>
+
+      <div class="content-box" id="intercrop-counting">
+        <div class="content-para">
+          <p><strong><u>Point-Based Counting of Cereals and Legumes in Intercropped Fields:</u></strong><br>
+            Adapted PET (a point-query crowd-counting transformer) to estimate per-species plant density for wheat-pea intercrops from close-range smartphone imagery[cite: 9]. Addressed overlapping plant morphology by transitioning to invariant leaf-tip annotations for wheat, coupled with input resolution scaling and edge-border filtering[cite: 9]. Achieved 4.7% MAPE (74.2% F1) on wheat tips and 7.8% MAPE (86.2% F1) on pea plants[cite: 9]. You can explore the complete implementation and source code on my <a href="https://github.com/baptistepras/Point-Based-Counting-of-Cereals-and-Legumes-in-Intercropped-Fields" target="_blank" aria-label="Navigate to Intercrop Plant Counting project on GitHub">GitHub</a>.
+          </p>
+        </div>
+
+        <div class="image-row">
+          <div class="image-column">
+            <img src="static/x83y12_IMG_20251215_103336.jpg" alt="Point-based wheat and pea counting detections" style="max-width: 100%; border-radius: 8px;">
           </div>
         </div>
       </div>
@@ -1063,7 +1082,7 @@ main {
     <div class="footer-container">
     <div style="max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 20px;">
         <p style="margin: 0;">Powered by 
-          <a href="https://github.com" target="_blank">GitHub</a>, last updated on February 13, 2026
+          <a href="https://github.com" target="_blank">GitHub</a>, last updated on August 30, 2026
         </p>
     </div>
     </div>
