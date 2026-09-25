@@ -799,7 +799,7 @@
       <div class="content-box" id="tokam2D">
         <div class="content-para">
         <p><strong><u>Structure Detection in Fusion Plasma Simulations:</u></strong><br>
-          Developed a multi-stage detection pipeline featuring a YOLOv8 architecture optimized with a custom MLP post-filter for low-contrast frames, incorporating a pseudo-labeling strategy to expand a limited 30-image dataset and a feature extractor targeting intensity statistics and Sobel gradients. You can explore the complete implementation and source code on my <a href="https://github.com/baptistepras/Structure-detection-in-fusion-plasma-simulations" target="_blank" aria-label="Navigate to Structure Detection in Fusion Plasma Simulations project on GitHub">GitHub</a>.
+          Developed a multi-stage detection pipeline featuring a YOLOv8 architecture optimized with a custom MLP post-filter for low-contrast frames, incorporating a pseudo-labeling strategy to expand a limited 30-image dataset and a feature extractor targeting intensity statistics and Sobel gradients. Reached an 81% AP50 anf finished 4/94 of a codabench challenge. You can explore the complete implementation and source code on my <a href="https://github.com/baptistepras/Structure-detection-in-fusion-plasma-simulations" target="_blank" aria-label="Navigate to Structure Detection in Fusion Plasma Simulations project on GitHub">GitHub</a>.
         </p>
         </div>
 
@@ -827,7 +827,7 @@
       <div class="content-box" id="nlp">
         <div class="content-para">
         <p><strong><u>Measuring Market Impact of Financial News:</u></strong><br>
-          Engineered a computationally efficient framework to transform unstructured financial news into (date, ticker, impact summary) event representations by implementing a hierarchical Map-Reduce summarization architecture with compact Transformers, ensuring numerical fidelity and entity grounding while validating results through a finance-oriented LLM-as-a-judge audit. You can explore the complete implementation and source code on my <a href="https://github.com/baptistepras/financial-news-impact-prediction" target="_blank" aria-label="Navigate to Measuring Market Impact of Financial News project on GitHub">GitHub</a>.
+          Engineered a computationally efficient framework to transform unstructured financial news into (date, ticker, impact summary) event representations by implementing a hierarchical Map-Reduce summarization architecture with compact Transformers, ensuring numerical fidelity and entity grounding while validating results through a finance-oriented LLM-as-a-judge audit, reaching a 0.59 ROC-AUC. You can explore the complete implementation and source code on my <a href="https://github.com/baptistepras/financial-news-impact-prediction" target="_blank" aria-label="Navigate to Measuring Market Impact of Financial News project on GitHub">GitHub</a>.
         </p>
         </div>
       </div>
@@ -835,7 +835,7 @@
       <div class="content-box" id="cyclegan">
         <div class="content-para">
         <p><strong><u>Unpaired Image-to-Image Translation (CycleGAN):</u></strong><br>
-          Re-implemented the CycleGAN architecture entirely in pure NumPy, without using any autograd library like PyTorch or TensorFlow. This project involved hand-coding the forward and backward passes for ResNet generators and PatchGAN discriminators, as well as the cycle consistency and identity losses. Despite the CPU constraints, the model successfully demonstrated the cycle consistency effect on the apple2orange and horse2zebra datasets. You can explore the complete implementation and source code on my: <a href="https://github.com/baptistepras/CycleGAN" target="_blank" aria-label="Navigate to CycleGAN project on GitHub">GitHub</a>.
+          Re-implemented the CycleGAN architecture entirely in pure NumPy, without using any autograd library like PyTorch or TensorFlow. This project involved hand-coding the forward and backward passes for ResNet generators and PatchGAN discriminators, as well as the cycle consistency (𝐿1 ≈ 0.20) and identity losses. Despite the CPU constraints, the model successfully demonstrated the cycle consistency effect on the apple2orange and horse2zebra datasets. You can explore the complete implementation and source code on my: <a href="https://github.com/baptistepras/CycleGAN" target="_blank" aria-label="Navigate to CycleGAN project on GitHub">GitHub</a>.
         </p>
         </div>
         <div class="image-row">
@@ -1031,10 +1031,11 @@ main {
           <ul>
             <li><img src="static/NLP.png" alt="NLP" style="width: 30px; vertical-align: middle; margin-right: 10px;">NLP</li>
             <li><img src="static/computervision.png" alt="ComputerVision" style="width: 30px; vertical-align: middle; margin-right: 10px;">Computer Vision</li>
+            <li><img src="static/signalprocessing.png" alt="SignalProcessing" style="width: 30px; vertical-align: middle; margin-right: 10px;">Signal Processing</li>
             <li><img src="static/pytorch.png" alt="PyTorch" style="width: 30px; vertical-align: middle; margin-right: 10px;">PyTorch</li>
             <li><img src="static/scikit-learn.png" alt="Scikit-learn" style="width: 30px; vertical-align: middle; margin-right: 10px;">Scikit-Learn</li>
             <li><img src="static/numpy.png" alt="NumPy" style="width: 30px; vertical-align: middle; margin-right: 10px;">NumPy</li>
-            <li><img src="static/pandas.png" alt="Pandas" style="width: 30px; vertical-align: middle; margin-right: 10px;">Pandas</li>
+            <!--<li><img src="static/pandas.png" alt="Pandas" style="width: 30px; vertical-align: middle; margin-right: 10px;">Pandas</li>-->
             <!--<li><img src="static/matplotlib.png" alt="MatPlotLib" style="width: 30px; vertical-align: middle; margin-right: 10px;">MatPlotLib</li>-->
           </ul>
         </div>
@@ -1042,12 +1043,14 @@ main {
         <div style="flex: 1; min-width: 200px; margin: 9px;">
           <h3>Tools</h3>
           <ul>
-            <li><img src="static/latex.png" alt="LaTeX" style="width: 30px; vertical-align: middle; margin-right: 10px;">LaTeX</li>
-            <li><img src="static/git.png" alt="Git" style="width: 30px; vertical-align: middle; margin-right: 10px;">Git</li>
-            <li><img src="static/linux.png" alt="Linux" style="width: 30px; vertical-align: middle; margin-right: 10px;">Linux</li>
             <li><img src="static/slurm.png" alt="Slurm" style="width: 30px; vertical-align: middle; margin-right: 10px;">Slurm</li>
-            <li><img src="static/m365.png" alt="Microsoft 365" style="width: 30px; vertical-align: middle; margin-right: 10px;">Microsoft Office Suite</li>
-            <li><img src="static/html.png" alt="HTML" style="width: 30px; vertical-align: middle; margin-right: 10px;">HTML</li>
+            <li><img src="static/git.png" alt="Git" style="width: 30px; vertical-align: middle; margin-right: 10px;">Git</li>
+            <li><img src="static/huggingface.png" alt="HuggingFace" style="width: 30px; vertical-align: middle; margin-right: 10px;">Huggin Face</li>
+            <li><img src="static/opencv.png" alt="OpenCV" style="width: 30px; vertical-align: middle; margin-right: 10px;">OpenCV</li>
+            <li><img src="static/linux.png" alt="Linux" style="width: 30px; vertical-align: middle; margin-right: 10px;">Linux</li>
+            <li><img src="static/latex.png" alt="LaTeX" style="width: 30px; vertical-align: middle; margin-right: 10px;">LaTeX</li>
+            <!--<li><img src="static/m365.png" alt="Microsoft 365" style="width: 30px; vertical-align: middle; margin-right: 10px;">Microsoft Office Suite</li>-->
+            <!--<li><img src="static/html.png" alt="HTML" style="width: 30px; vertical-align: middle; margin-right: 10px;">HTML</li>-->
             <!--<li><img src="static/css.png" alt="CSS" style="width: 30px; vertical-align: middle; margin-right: 10px;">CSS</li>-->
           </ul>
         </div>
@@ -1083,7 +1086,7 @@ main {
     <div class="footer-container">
     <div style="max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 20px;">
         <p style="margin: 0;">Powered by 
-          <a href="https://github.com" target="_blank">GitHub</a>, last updated on August 30, 2026
+          <a href="https://github.com" target="_blank">GitHub</a>, last updated on September 25, 2026
         </p>
     </div>
     </div>
