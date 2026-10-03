@@ -12,6 +12,6 @@ python3 -m http.server
 
 then open http://localhost:8000.
 
-## License
+## Copyright
 
-MIT, see [LICENSE](LICENSE). The content of `static/` (documents, images) is not covered.
+© Baptiste Pras. All rights reserved. The code and the content of this website may not be reused without permission.
