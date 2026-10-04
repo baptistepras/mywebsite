@@ -45,7 +45,7 @@ const qaData = [
   {
     question: "What did you do at Outlier?",
     aliases: ["What did you do at Alignerr?", "What is a Generative AI Trainer?"],
-    answer: "From January 2025 to May 2026, I worked remotely as a Generative AI Trainer for Outlier and Alignerr. I evaluated and refined LLM reasoning on complex coding and mathematical tasks, designed adversarial prompts, and assessed multi-step outputs to reduce hallucinations and improve factual grounding for RLHF pipelines."
+    answer: "From January 2025 to August 2025, I worked remotely as a Generative AI Trainer for Outlier and Alignerr. I evaluated and refined LLM reasoning on complex coding and mathematical tasks, designed adversarial prompts, and assessed multi-step outputs to reduce hallucinations and improve factual grounding for RLHF pipelines."
   },
   {
     question: "What did you do at Carrefour?",
